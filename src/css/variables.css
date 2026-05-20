@@ -1,0 +1,20 @@
+:root {
+  /* Surfaces */
+  --color-bg-page: #f4f4f4;
+  --color-bg-panel: #1f1f1f;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Brand neutrals */
+  --color-dark: #1f1f1f;
+  --color-dark-translucent: rgba(36, 36, 36, 0.8);
+  --color-white: #ffffff;
+
+  /* Text */
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.7);
+  --color-text-muted: #d9d9d9;
+
+  /* Borders */
+  --color-border-on-light: rgba(31, 31, 31, 0.1);
+  --color-border-on-dark: rgba(255, 255, 255, 0.15);
+}
