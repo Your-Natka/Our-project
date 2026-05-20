@@ -1,0 +1,51 @@
+src
+├── api
+├── assets
+│   ├── icons
+│   ├── images
+│   └── fonts
+│
+├── components
+│   ├── Header
+│   ├── Hero
+│   ├── Categories
+│   ├── Exercises
+│   ├── Favorites
+│   ├── Modal
+│   ├── Pagination
+│   ├── Quote
+│   ├── Rating
+│   └── Footer
+│
+├── css
+│   ├── base
+│   ├── components
+│   ├── layout
+│   ├── utils
+│   └── styles.css
+│
+├── js
+│   ├── services
+│   ├── helpers
+│   ├── render
+│   ├── storage
+│   ├── modal
+│   ├── pagination
+│   └── favorites
+│
+├── pages
+│   ├── home.js
+│   └── favorites.js
+│
+├── partials
+│   ├── header.html
+│   ├── hero.html
+│   ├── categories.html
+│   ├── exercises.html
+│   ├── favorites.html
+│   ├── footer.html
+│   └── modal.html
+│
+├── index.html
+├── favorites.html
+└── main.js
