@@ -1,1 +1,1 @@
-{"version":3,"file":"favorites.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"favorites.js","sources":["../src/pages/favorites.js"],"sourcesContent":["console.log('Favorites page loaded');\n"],"names":[],"mappings":"oCAAA,QAAQ,IAAI,uBAAuB"}
