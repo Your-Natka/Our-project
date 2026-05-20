@@ -50,4 +50,35 @@ src
 ├── favorites.html
 └── main.js
 
+git checkout -b "fearure/hero"
+git add .
+git commit -m "dsnhdfshj"
+git push --set-upstream origin fearure/hero
+git checkout main
 
+git pull
+
+
+📌 Що таке assets
+
+Assets — це:
+
+картинки
+іконки
+шрифти
+svg
+background images
+gif
+video
+audio
+
+Тобто все, що НЕ є логікою JS.
+
+Тому роблять так
+src 
+├── api 
+├── assets 
+│ ├── icons 
+│ ├── images 
+│ └── fonts
+│ ├── sprite
