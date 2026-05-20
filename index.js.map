@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../src/main.js"],"sourcesContent":["import './css/styles.css';\n\nconsole.log('YOUR ENERGY app is running 🚀');\n"],"names":[],"mappings":"ssBAEA,QAAQ,IAAI,+BAA+B"}
+{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
