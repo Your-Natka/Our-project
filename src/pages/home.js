@@ -1,13 +1,17 @@
+import { initFilters } from '../features/filters/filters.controller';
+import { initExercises } from '../features/exercises/exercises.controller';
 import { getQuote } from '../api/quote';
 
-async function loadQuote() {
+async function initHome() {
   try {
-    const data = await getQuote();
+    const quote = await getQuote();
+    console.log('QUOTE:', quote);
 
-    console.log(data);
+    initFilters();
+    initExercises();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
-loadQuote();
+initHome();
