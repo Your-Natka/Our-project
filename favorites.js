@@ -1,2 +1,2 @@
-import"./assets/styles-Dr0Vv68o.js";console.log("Favorites page loaded");
+import"./assets/styles-CjP3mj56.js";console.log("Favorites page loaded");
 //# sourceMappingURL=favorites.js.map
