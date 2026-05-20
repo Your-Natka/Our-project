@@ -1,12 +1,12 @@
-import"./assets/styles-CjP3mj56.js";const l="https://your-energy.b.goit.study/api";async function s(e){const t=await fetch(`${l}${e}`);if(!t.ok)throw new Error(`HTTP error! Status: ${t.status}`);return t.json()}function u(e,t=1,r=12){return s(`/filters?filter=${e}&page=${t}&limit=${r}`)}function f(e,t,r){t.innerHTML=e.map(n=>`
-        <button class="filter-btn" data-name="${n.name}">
-          ${n.name}
+import"./assets/styles-DLAChBYQ.js";var e=`https://your-energy.b.goit.study/api`;async function t(t){let n=await fetch(`${e}${t}`);if(!n.ok)throw Error(`HTTP error! Status: ${n.status}`);return n.json()}function n(e,n=1,r=12){return t(`/filters?filter=${e}&page=${n}&limit=${r}`)}function r(e,t,n){t.innerHTML=e.map(e=>`
+        <button class="filter-btn" data-name="${e.name}">
+          ${e.name}
         </button>
-      `).join(""),t.querySelectorAll(".filter-btn").forEach(n=>{n.addEventListener("click",()=>{r(n.dataset.name)})})}function d(e=""){return s(`/exercises?${e}`)}function y(e,t){t.innerHTML=e.map(r=>`
+      `).join(``),t.querySelectorAll(`.filter-btn`).forEach(e=>{e.addEventListener(`click`,()=>{n(e.dataset.name)})})}function i(e=``){return t(`/exercises?${e}`)}function a(e,t){t.innerHTML=e.map(e=>`
         <div class="exercise-card">
-          <h3>${r.name}</h3>
-          <p>${r.bodyPart}</p>
-          <p>${r.target}</p>
+          <h3>${e.name}</h3>
+          <p>${e.bodyPart}</p>
+          <p>${e.target}</p>
         </div>
-      `).join("")}const m=document.querySelector("#exercises");let i="muscles";function p(){c(i)}async function c(e){i=e;try{const t=await d(`bodypart=${e.toLowerCase()}&page=1&limit=10`);y(t.results,m)}catch(t){console.error(t)}}const $=document.querySelector("#filters");let o="Muscles";function h(){a(o)}async function a(e){try{const t=await u(e);f(t.results,$,g)}catch(t){console.error(t)}}function g(e){o=e,a(o),c(o)}async function E(){return s("/quote")}async function w(){try{const e=await E();console.log("QUOTE:",e),h(),p()}catch(e){console.error(e)}}w();
+      `).join(``)}var o=document.querySelector(`#exercises`),s=`muscles`;function c(){l(s)}async function l(e){s=e;try{a((await i(`bodypart=${e.toLowerCase()}&page=1&limit=10`)).results,o)}catch(e){console.error(e)}}var u=document.querySelector(`#filters`),d=`Muscles`;function f(){p(d)}async function p(e){try{r((await n(e)).results,u,m)}catch(e){console.error(e)}}function m(e){d=e,p(d),l(d)}async function h(){return t(`/quote`)}async function g(){try{let e=await h();console.log(`QUOTE:`,e),f(),c()}catch(e){console.error(e)}}g();
 //# sourceMappingURL=index.js.map
