@@ -1,4 +1,4 @@
-import"./assets/styles-DIUchJxg.js";var e=`https://your-energy.b.goit.study/api`;async function t(t){let n=await fetch(`${e}${t}`);if(!n.ok)throw Error(`HTTP error! Status: ${n.status}`);return n.json()}function n(e,n=1,r=12){return t(`/filters?filter=${e}&page=${n}&limit=${r}`)}function r(e,t,n){t.innerHTML=e.map(e=>`
+import"./assets/styles-BdzcuOvo.js";var e=`https://your-energy.b.goit.study/api`;async function t(t){let n=await fetch(`${e}${t}`);if(!n.ok)throw Error(`HTTP error! Status: ${n.status}`);return n.json()}function n(e,n=1,r=12){return t(`/filters?filter=${e}&page=${n}&limit=${r}`)}function r(e,t,n){t.innerHTML=e.map(e=>`
         <button class="filter-btn" data-name="${e.name}">
           ${e.name}
         </button>
