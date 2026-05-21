@@ -1,11 +1,15 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 import { initFilters } from '../features/filters/filters.controller';
 import { initExercises } from '../features/exercises/exercises.controller';
-import { getQuote } from '../api/quote';
+
+import { initQuote } from '../js/quote';
 
 async function initHome() {
   try {
-    const quote = await getQuote();
-    console.log('QUOTE:', quote);
+
+    initQuote();
 
     initFilters();
     initExercises();
