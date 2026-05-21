@@ -1,0 +1,113 @@
+.exercises {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.exercises-wrapper {
+  width: 100%;
+}
+
+.exercises-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercises-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.exercise-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  row-gap: 16px;
+}
+
+.exercise-badge-rating {
+  display: inline-block;
+}
+
+.exercise-badge {
+  background-color: #f4f4f4;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.exercise-rating {
+  font-size: 12px;
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.exercise-start-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  color: #242424;
+  padding: 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 8px;
+  justify-self: end;
+}
+
+.exercise-title {
+  grid-column: 1 / -1;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.exercise-stats {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 16px;
+  font-size: 12px;
+  color: #242424;
+}
+
+.stat-label {
+  color: rgba(36, 36, 36, 0.4);
+}
+
+.exercises-error-message {
+  font-size: 16px;
+  color: #242424;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.is-hidden {
+  display: none !important;
+}
