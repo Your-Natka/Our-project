@@ -19,22 +19,30 @@ export function initFooter() {
         }
       );
 
+      // Success
       if (response.status === 201) {
         alert("We're excited to have you on board! 🎉");
         form.reset();
         return;
       }
+
+      // Conflict: Already subscribed
       if (response.status === 409) {
-        alert('Цей email вже підписаний на розсилку!');
+        alert('This email is already subscribed to the newsletter!');
         return;
       }
+
+      // Bad Request / Not Found
       if (response.status === 400 || response.status === 404) {
         alert('Bad request. Please check your email formatting.');
         return;
       }
+
+      // Catch-all for other server responses (500, etc.)
       throw new Error('Unexpected status code');
     } catch (error) {
-      alert('Сталася помилка на сервері. Спробуйте пізніше.');
+      // Network failures or thrown errors
+      alert('A server error occurred. Please try again later.');
       console.error('Subscription system error:', error);
     }
   });

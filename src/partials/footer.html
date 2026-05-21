@@ -2,7 +2,11 @@
   <div class="container footer-container">
     <div class="footer-main-content">
       <div class="footer-brand">
-        <a href="./index.html" class="footer-logo">YOUR ENERGY</a>
+        <a href="./index.html" class="footer-logo">
+          <svg class="footer-logo-svg">
+            <use href="./assets/sprite.svg#icon-logo-white"></use>
+          </svg>
+        </a>
         <ul class="socials-list">
           <li class="socials-item">
             <a
@@ -43,27 +47,26 @@
         </ul>
       </div>
 
-      <div class="footer-slogan-wrapper">
+      <div class="footer-right-side-wrapper">
         <h2 class="footer-slogan">
           Transforming your <span class="italic-text">body</span> shape with us
         </h2>
-      </div>
 
-      <div class="footer-subscribe">
-        <p class="subscribe-text">Subscribe and learn about new exercises!</p>
-        <form class="subscribe-form" id="footer-subscribe-form">
-          <input
-            type="email"
-            name="email"
-            class="subscribe-input"
-            placeholder="Email"
-            required
-          />
-          <button type="submit" class="subscribe-btn">Send</button>
-        </form>
+        <div class="footer-subscribe">
+          <p class="subscribe-text">Subscribe and learn about new exercises!</p>
+          <form class="subscribe-form" id="footer-subscribe-form">
+            <input
+              type="email"
+              name="email"
+              class="subscribe-input"
+              placeholder="Email"
+              required
+            />
+            <button type="submit" class="subscribe-btn">Send</button>
+          </form>
+        </div>
       </div>
     </div>
-
     <div class="footer-legal">
       <p class="legal-text">Your Energy. All rights reserved.</p>
       <div class="legal-links">
@@ -73,7 +76,7 @@
           >Terms of Service</a
         >
       </div>
-      <p class="legal-text">#2023</p>
+      <p class="year-text">#2023</p>
     </div>
   </div>
 </footer>
