@@ -3,20 +3,13 @@ import { renderCategoryCards } from './filters.render';
 import { loadExercisesByFilter } from '../exercises/exercises.controller';
 
 const refs = {
-  section: document.getElementById('categories-section') as HTMLElement | null,
-  filterList: document.querySelector('.filter-list') as HTMLUListElement | null,
-  categoriesList: document.getElementById(
-    'categories-list'
-  ) as HTMLUListElement | null,
-  subtitle: document.getElementById(
-    'categories-subtitle'
-  ) as HTMLSpanElement | null,
-  errorBlock: document.getElementById(
-    'categories-error'
-  ) as HTMLDivElement | null,
-  pagination: document.getElementById(
-    'categories-pagination'
-  ) as HTMLDivElement | null,
+  section: document.getElementById('exercises-section') as HTMLElement | null,
+  filterList: document.getElementById('exercises-filter-list') as HTMLUListElement | null,
+  categoriesList: document.getElementById('exercises-list') as HTMLUListElement | null,
+  title: document.getElementById('exercises-title') as HTMLHeadingElement | null,
+  subtitle: document.getElementById('exercises-subtitle') as HTMLSpanElement | null,
+  errorBlock: document.getElementById('exercises-error') as HTMLDivElement | null,
+  pagination: document.getElementById('exercises-pagination') as HTMLDivElement | null,
 };
 
 let activeFilter = 'Muscles'; // Початковий дефолтний фільтр
@@ -35,6 +28,11 @@ export function initFilters(): void {
 
   // Слухаємо кліки по самих картках категорій (Abductors, Abs, тощо)
   refs.categoriesList.addEventListener('click', handleCategoryClick);
+
+  // Слухаємо кліки на заголовок "Exercises" для повернення до категорій
+  if (refs.title) {
+    refs.title.addEventListener('click', handleTitleClick);
+  }
 
   // Стартовий запуск: підвантажуємо дефолтний Muscles
   loadFilters(activeFilter);
@@ -90,12 +88,12 @@ async function handleFilterClick(event: Event): Promise<void> {
   await loadFilters(activeFilter);
 }
 
-// Клік по картці категорії
+// Клік по картці категорії (перехід до вправ)
 function handleCategoryClick(event: Event): void {
   const target = event.target as HTMLElement;
   const card = target.closest('.category-card') as HTMLLIElement | null;
 
-  if (!card || !refs.section || !refs.subtitle) return;
+  if (!card || !refs.subtitle || !refs.filterList || !refs.categoriesList) return;
 
   const categoryName = card.dataset.category || '';
 
@@ -104,20 +102,30 @@ function handleCategoryClick(event: Event): void {
     categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
   refs.subtitle.textContent = ` / ${capitalizedCategoryName}`;
 
-  // 2. Ховаємо нашу секцію категорій
-  refs.section.classList.add('is-hidden');
+  // 2. Ховаємо верхні кнопки-фільтри
+  refs.filterList.classList.add('is-hidden');
 
-  // 3. Знаходимо секцію вправ нашого колеги і робимо її видимою
-  const exercisesSection = document.querySelector(
-    '.exercises'
-  ) as HTMLElement | null;
-  if (exercisesSection) {
-    exercisesSection.classList.remove('is-hidden');
-  }
+  // 3. Очищуємо контейнер перед рендером вправ Олександра
+  refs.categoriesList.innerHTML = '';
 
   // 4. Запускаємо логіку колеги: завантажуємо вправи для обраної категорії!
-  // Оскільки ми імпортували оригінальний JS метод, передаємо туди назву категорії.
   loadExercisesByFilter(categoryName);
+}
+
+// Клік по заголовку "Exercises" (повернення до категорій)
+function handleTitleClick(): void {
+  // Повертаємося лише тоді, коли ми знаходимося всередині категорії (є підзаголовок)
+  if (!refs.subtitle || !refs.subtitle.textContent || !refs.filterList) return;
+
+  // 1. Очищаємо підзаголовок
+  refs.subtitle.textContent = '';
+
+  // 2. Показуємо кнопки фільтрів
+  refs.filterList.classList.remove('is-hidden');
+
+  // 3. Перезавантажуємо активний фільтр категорій
+  currentPage = 1;
+  loadFilters(activeFilter);
 }
 
 function showError(): void {

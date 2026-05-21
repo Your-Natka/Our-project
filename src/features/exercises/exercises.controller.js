@@ -1,12 +1,12 @@
 import { getExercises } from './exercises.api';
 import { renderExercises } from './exercises.render';
 
-const exercisesContainer = document.querySelector('#exercises');
+const exercisesContainer = document.querySelector('#exercises-list');
 
 let currentFilter = 'muscles';
 
 export function initExercises() {
-  loadExercisesByFilter(currentFilter);
+  // loadExercisesByFilter(currentFilter); // Відключено автозапуск, оскільки першим завантажується фільтр категорій Muscles
 }
 
 export async function loadExercisesByFilter(filter) {

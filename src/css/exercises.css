@@ -1,4 +1,4 @@
-.categories-list {
+.exercises-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .categories-list {
+  .exercises-list {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 32px;
     column-gap: 15px;
@@ -21,7 +21,7 @@
   .category-card {
     position: relative;
     height: 242px;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     display: flex;
@@ -66,30 +66,26 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+/* ==========================================================================
+   Десктопний леяут (від 1440px відповідно до загальних стилів проєкту)
+   ========================================================================== */
+@media screen and (min-width: 1440px) {
   .home-layout-wrapper {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: flex-start;
     gap: 32px;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
-  .categories-section,
-  .exercises {
+  /* Головний контент займає весь вільний простір */
+  .exercises-section {
     flex-grow: 1;
   }
 
-  .home-layout-wrapper .categories-section .container,
-  .home-layout-wrapper .exercises .container,
-  .home-layout-wrapper .quote .container {
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
+  /* Блок цитати: фіксований ліворуч, не стискається */
   .quote {
     width: 444px;
     flex-shrink: 0;
