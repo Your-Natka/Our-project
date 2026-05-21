@@ -1,4 +1,4 @@
-import{n as e}from"./assets/rolldown-runtime-BDqkOrsv.js";import"./assets/styles-DOGRVb8L.js";import{t}from"./assets/vendor-BQcEvRoX.js";var n=e(t(),1),r=`https://your-energy.b.goit.study/api`;async function i(e){let t=await fetch(`${r}${e}`);if(!t.ok)throw Error(`HTTP error! Status: ${t.status}`);return t.json()}function a(e,t=1,n=12){return i(`/filters?filter=${e}&page=${t}&limit=${n}`)}function o(e,t,n){t.innerHTML=e.map(e=>`
+import{n as e}from"./assets/rolldown-runtime-BDqkOrsv.js";import"./assets/styles-DOGRVb8L.js";import{t}from"./assets/vendor-BQcEvRoX.js";var n=e(t(),1),r=`https://your-energy.b.goit.study/api`;async function i(e){let t=await fetch(`${r}${e}`);if(!t.ok)throw Error(`HTTP error! Status: ${t.status}`);return t.json()}function a(e=`Muscles`,t=1,n=12){return i(`/filters?filter=${e}&page=${t}&limit=${n}`)}function o(e,t,n){t.innerHTML=e.map(e=>`
         <button class="filter-btn" data-name="${e.name}">
           ${e.name}
         </button>
