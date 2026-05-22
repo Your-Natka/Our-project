@@ -1,38 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOUR ENERGY</title>
 
-  <title>YOUR ENERGY</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Modern Normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    />
 
-  <!-- Modern Normalize -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- Main styles -->
+    <script type="module" crossorigin src="/Our-project/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/Our-project/assets/rolldown-runtime-BDqkOrsv.js">
+    <link rel="modulepreload" crossorigin href="/Our-project/assets/styles-Biyiydvw.js">
+    <link rel="modulepreload" crossorigin href="/Our-project/assets/vendor-BQcEvRoX.js">
+    <link rel="stylesheet" crossorigin href="/Our-project/assets/styles-BKMqClEz.css">
+    <link rel="stylesheet" crossorigin href="/Our-project/assets/vendor-BFQQRvTW.css">
+  </head>
 
-  <!-- Main styles -->
-  <script type="module" crossorigin src="/Our-project/index.js"></script>
-  <link rel="modulepreload" crossorigin href="/Our-project/assets/rolldown-runtime-BDqkOrsv.js">
-  <link rel="modulepreload" crossorigin href="/Our-project/assets/styles-DOGRVb8L.js">
-  <link rel="modulepreload" crossorigin href="/Our-project/assets/vendor-BQcEvRoX.js">
-  <link rel="stylesheet" crossorigin href="/Our-project/assets/styles-BXCQnb3C.css">
-  <link rel="stylesheet" crossorigin href="/Our-project/assets/vendor-BFQQRvTW.css">
-</head>
-
-<body data-page="home">
-
-  <header class="header">
+  <body>
+    <header class="header">
 
   <div class="container header__container">
     <a class="header__logo" href="./index.html" aria-label="YourEnergy home page">
@@ -138,9 +141,8 @@
 
 </header>
 
-
-  <main>
-    <section class="hero" data-section="hero">
+    <main>
+      <section class="hero" data-section="hero">
   <div class="container">
     <div class="hero-top">
       <div class="hero-content">
@@ -204,21 +206,56 @@
   </div>
 </section>
 
-    <section class="categories">
-    <div class="container">
-        <h2 class="section-title">Categories</h2>
-
-        <ul class="categories-list"></ul>
+      <div class="home-layout-wrapper">
+        <section class="exercises-section" id="exercises-section">
+  <div class="container">
+    
+    <!-- Заголовна панель: Заголовок секції + Кнопки-фільтри -->
+    <div class="exercises-navigation">
+      <h2 class="exercises-title" id="exercises-title" style="cursor: pointer; user-select: none;">
+        Exercises<span class="exercises-subtitle" id="exercises-subtitle"></span>
+      </h2>
+      
+      <!-- Кнопки-фільтри -->
+      <ul class="filter-list" role="tablist" id="exercises-filter-list">
+        <li class="filter-item">
+          <button class="filter-btn active" type="button" data-filter="Muscles" aria-selected="true" role="tab">
+            Muscles
+          </button>
+        </li>
+        <li class="filter-item">
+          <button class="filter-btn" type="button" data-filter="Body parts" aria-selected="false" role="tab">
+            Body parts
+          </button>
+        </li>
+        <li class="filter-item">
+          <button class="filter-btn" type="button" data-filter="Equipment" aria-selected="false" role="tab">
+            Equipment
+          </button>
+        </li>
+      </ul>
     </div>
+
+    <!-- Основний контент: Універсальна сітка для категорій та вправ -->
+    <div class="exercises-content">
+      <ul class="exercises-list" id="exercises-list">
+        <!-- Вміст рендериться динамічно через JS/TS -->
+      </ul>
+
+      <!-- Блок для помилки або порожнього результату -->
+      <div class="exercises-error is-hidden" id="exercises-error">
+        <p class="error-text">Нічого не знайдено. Спробуйте пізніше</p>
+      </div>
+      
+      <!-- Контейнер для пагінації -->
+      <div class="pagination-container" id="exercises-pagination"></div>
+    </div>
+    
+  </div>
 </section>
 
-    <section class="exercises">
-    <div class="container">
-        <ul class="exercises-list"></ul>
-    </div>
-</section>
 
-    <!-- <section class="quote">
+        <!-- <section class="quote">
     <div class="container">
         <div class="quote-wrapper">
             <p class="quote-text"></p>
@@ -230,9 +267,10 @@
 
 <section class="quote quote-container"></section>
 
-  </main>
+      </div>
+    </main>
 
-  <footer class="footer">
+    <footer class="footer">
   <div class="container footer-container">
     <div class="footer-main-content">
       <div class="footer-brand">
@@ -316,6 +354,5 @@
 </footer>
 
 
-</body>
-
+  </body>
 </html>
