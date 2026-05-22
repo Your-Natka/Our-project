@@ -1,7 +1,7 @@
 /* CORE BASE STYLES & LAYOUT VARIABLES (MOBILE) */
 .footer {
   width: 100%;
-  padding-top: 40px;
+  padding-top: 32px;
   padding-bottom: 10px;
   background-color: var(--color-primary, #242424);
   color: var(--color-white, #f4f4f4);
@@ -81,7 +81,7 @@
 
 .footer-slogan {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 38px;
   line-height: 1.37;
   letter-spacing: -0.02em;
   margin: 0;
@@ -222,10 +222,11 @@
   }
 
   .footer-slogan {
-    font-size: 44px;
-    line-height: 1.14;
-    width: 434px;
-    margin-bottom: 32px;
+    font-size: 56px;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+    width: 433px;
+    margin-bottom: 20px;
   }
 
   .footer-subscribe {
