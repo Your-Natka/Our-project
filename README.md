@@ -58,56 +58,43 @@
 
 ## Деплой
 
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора `--base=/<REPO>/`, для команди `build`,
-замінивши `<REPO>` на назву свого репозиторію, та відправити зміни на GitHub.
+Продакшн-версія автоматично збирається й деплоїться на **GitHub Pages** (гілка
+`gh-pages`) після кожного оновлення `main` — через GitHub Action
+`.github/workflows/deploy.yml`.
 
-```json
-"build": "vite build --base=/<REPO>/",
-```
+> Не забудь у `package.json` тримати правильний `--base=/Our-project/` для
+> команди `build`, інакше CSS/JS не підвантажаться на продакшені.
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+## 👥 Команда JS Olympic
 
-![GitHub Pages settings](./assets/repo-settings.png)
+<div align="center">
 
-### Статус деплою
+| Учасник               | GitHub                                       |
+| --------------------- | -------------------------------------------- |
+| Natalia Bodnarchuk    | [@Your-Natka](https://github.com/Your-Natka) |
+| Oksana Miazina        | [@PoppyHanna](https://github.com/PoppyHanna) |
+| Maks Lukyanenko       | [@MaksL777](https://github.com/MaksL777)     |
+| Mykola Masiuk         | [@mykolamasiuk](https://github.com/)         |
+| Volodymyr Burtsev     | [@voksus](https://github.com/voksus)         |
+| Yakiv Tsypin (Zexler) | [@Zexler](https://github.com/Zexler)         |
+| Hanna Fedko           | [@PoppyHanna](https://github.com/PoppyHanna) |
+| Oleksandr Tovkailo    | [@Tovchik](https://github.com/Tovchik)       |
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+</div>
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, збірки чи деплою сталася помилка.
+## 🎨 Дизайн
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+Макет проєкту створено в Figma:
+**[YourEnergy — Figma file](https://www.figma.com/design/1ifqGcQBIzMoc21yIqyV5q/YourEnergy?node-id=2-186)**
 
-![Deployment status](./assets/deploy-status.png)
+## 📄 Ліцензія
 
-### Жива сторінка
+Проєкт створений в освітніх цілях у рамках курсу **GoIT JavaScript**.
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях репозиторію.
-Наприклад, ось посилання на живу версію для цього репозиторію
+---
 
-[https://goitacademy.github.io/vanilla-app-template/](https://goitacademy.github.io/vanilla-app-template/).
+<div align="center">
 
-Якщо відкриється порожня сторінка, переконайся, що у вкладці `Console` немає
-помилок пов'язаних з неправильними шляхами до CSS та JS файлів проекту
-(**404**). Швидше за все у тебе неправильне значення прапора `--base` для
-команди `build` у файлі `package.json`.
+Made with ❤️ and a lot of ☕ by **JS Olympic**
 
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пуша у гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) із файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується та
-   проходить лінтинг та збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
-   відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
-   буде вказано в чому проблема.
+</div>
