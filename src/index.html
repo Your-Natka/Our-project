@@ -40,6 +40,42 @@
     <main>
       <load src="./partials/hero.html" />
 
+      <!-- Спільна навігація сторінки (універсальний заголовок та фільтри) -->
+      <nav class="section-navigation container">
+        <h2 class="section-title" id="section-title" style="cursor: pointer; user-select: none;">
+          Exercises<span class="section-subtitle" id="section-subtitle"></span>
+        </h2>
+
+        <!-- Пошукове поле -->
+        <div class="search-box is-hidden" id="section-search-box">
+          <input type="text" placeholder="Search" class="search-input" />
+          <button class="search-btn">
+            <svg width="24" height="24">
+              <use href="./assets/sprite.svg#icon-search"></use> <!-- ІКОНКА НАРАЗІ ВІДСУТНЯ -->
+            </svg>
+          </button>
+        </div>
+
+        <!-- Кнопки-фільтри -->
+        <ul class="filter-list" role="tablist" id="section-filter-list">
+          <li class="filter-item">
+            <button class="filter-btn active" type="button" data-filter="Muscles" aria-selected="true" role="tab">
+              Muscles
+            </button>
+          </li>
+          <li class="filter-item">
+            <button class="filter-btn" type="button" data-filter="Body parts" aria-selected="false" role="tab">
+              Body parts
+            </button>
+          </li>
+          <li class="filter-item">
+            <button class="filter-btn" type="button" data-filter="Equipment" aria-selected="false" role="tab">
+              Equipment
+            </button>
+          </li>
+        </ul>
+      </nav>
+
       <div class="home-layout-wrapper">
         <load src="./partials/exercises.html" />
 
