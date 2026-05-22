@@ -7,7 +7,7 @@ const sectionElement = document.getElementById('exercises-section');
 let currentFilterType = 'bodypart';
 let currentCategoryName = '';
 let currentPage = 1;
-let currentLimit = window.innerWidth >= 1440 ? 9 : 8;
+let currentLimit = window.innerWidth >= 768 ? 10 : 8;
 
 export function initExercises() {
 }
@@ -53,7 +53,7 @@ async function fetchAndRender() {
 }
 
 window.addEventListener('resize', () => {
-  const newLimit = window.innerWidth >= 1440 ? 9 : 8;
+  const newLimit = window.innerWidth >= 768 ? 10 : 8;
   if (currentLimit !== newLimit) {
     currentLimit = newLimit;
     if (currentCategoryName) {
