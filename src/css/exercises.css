@@ -11,58 +11,58 @@
   display: block;
 }
 
+.category-card {
+  position: relative;
+  height: 225px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.category-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.category-card-content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  padding: 15px;
+}
+
+.category-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+.category-filter {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 @media screen and (min-width: 768px) {
   .exercises-list {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 32px;
     column-gap: 15px;
-  }
-
-  .category-card {
-    position: relative;
-    height: 242px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .category-card-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
-  }
-
-  .category-card-content {
-    position: relative;
-    z-index: 2;
-    pointer-events: none;
-    padding: 15px;
-  }
-
-  .category-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #ffffff;
-    margin-bottom: 2px;
-    text-transform: capitalize;
-  }
-
-  .category-filter {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
   }
 }
 
@@ -83,6 +83,10 @@
   /* Головний контент займає весь вільний простір */
   .exercises-section {
     flex-grow: 1;
+  }
+
+  .category-card {
+    height: 242px;
   }
 
   /* Блок цитати: фіксований ліворуч, не стискається */
