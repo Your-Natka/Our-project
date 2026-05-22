@@ -22,6 +22,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition:
+    transform 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-2px) scale(1.01);
+
 }
 
 .category-card-bg {
@@ -116,7 +123,7 @@
 }
 
 .exercise-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.01);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
 }
 

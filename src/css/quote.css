@@ -6,6 +6,10 @@
 }
 
 .quote-card {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  min-width: 100%;
   background: #242424;
   color: white;
   border-radius: 20px;
@@ -22,13 +26,16 @@
   gap: 10px;
 }
 
-/* .icon-inverted-commas {
-  fill: #f4f4f4;
-} */
-
 .quote-text {
-  margin-top: 16px;
+  color: #f4f4f499;
   line-height: 1.5;
+}
+
+.quote-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .quote-author {
@@ -44,17 +51,26 @@
 .daily-norm {
   display: flex;
   gap: 16px;
-  background: #f3f3f3;
+  background: #fff;
   border-radius: 20px;
   padding: 20px;
 }
 
-/* .icon-black-dumbbells{
-  fill: #f4f4f4;
-} */
+.daily-min {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 2px;
+}
 
-.daily-title h3 {
-  margin-bottom: 8px;
+.daily-title {
+  color: #24242499;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.daily-text {
+  font-weight: 400;
+  font-size: 14px;
 }
 
 /* Tablet */
@@ -67,6 +83,11 @@
   .quote-card,
   .sport-card {
     width: calc((100% - 20px) / 2);
+  }
+
+  .daily-norm {
+    gap: 16px;
+    padding: 40px;
   }
 }
 

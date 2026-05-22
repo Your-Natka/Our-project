@@ -13,8 +13,6 @@ export function renderQuote(quote) {
   if (!quoteContainer) return;
 
   quoteContainer.innerHTML = `
-    <div class="container">
-
           <div class="quote-card">
 
             <div class="icon-quote">
@@ -23,15 +21,18 @@ export function renderQuote(quote) {
               </svg>
             </div>
 
-              <h3 class="quote-header">
-                  Quote of the day
-              </h3>
+              <div class="quote-text-content">
+                <div class="quote-title">
+                  <h3 class="quote-header">
+                      Quote of the day
+                  </h3>
 
-              <div class="icon-quote">
-                <svg width="20" height="20">
-                  <use href="../assets/sprite.svg#icon-inverted-commas"></use>
-                </svg>
-              </div>
+                  <div class="icon-quote">
+                    <svg width="20" height="20">
+                      <use href="../assets/sprite.svg#icon-inverted-commas"></use>
+                    </svg>
+                  </div>
+                </div>
 
               <p class="quote-text">
                   "${quote.quote}"
@@ -40,6 +41,7 @@ export function renderQuote(quote) {
               <p class="quote-author">
               ${quote.author}
               </p>
+            </div>
 
           </div>
 
@@ -127,7 +129,5 @@ export function renderQuote(quote) {
           </div>
 
         </div>
-
-      </div>
   `;
 }
