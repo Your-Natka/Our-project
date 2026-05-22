@@ -1,12 +1,12 @@
-<section class="exercises-section exercises is-hidden" id="exercises-section">
+<section class="exercises-section" id="exercises-section">
   <div class="container">
-
+    
     <!-- Заголовна панель: Заголовок секції + Кнопки-фільтри -->
     <div class="exercises-navigation">
       <h2 class="exercises-title" id="exercises-title" style="cursor: pointer; user-select: none;">
         Exercises<span class="exercises-subtitle" id="exercises-subtitle"></span>
       </h2>
-
+      
       <!-- Кнопки-фільтри -->
       <ul class="filter-list" role="tablist" id="exercises-filter-list">
         <li class="filter-item">
@@ -28,32 +28,19 @@
     </div>
 
     <!-- Основний контент: Універсальна сітка для категорій та вправ -->
-    <div class="exercises-content exercises-wrapper">
-      <ul class="exercises-list exercises-grid" id="exercises-list">
+    <div class="exercises-content">
+      <ul class="exercises-list" id="exercises-list">
         <!-- Вміст рендериться динамічно через JS/TS -->
       </ul>
 
       <!-- Блок для помилки або порожнього результату -->
-      <div class="exercises-errorexercises-error-message is-hidden" id="exercises-error">
-        <p class="error-text">No exercises found. Please try another category.</p>
+      <div class="exercises-error is-hidden" id="exercises-error">
+        <p class="error-text">Нічого не знайдено. Спробуйте пізніше</p>
       </div>
-
+      
       <!-- Контейнер для пагінації -->
       <div class="pagination-container" id="exercises-pagination"></div>
     </div>
-
-  </div>
-</section>
-
-
-
-<section id="exercises-section" class="exercises is-hidden">
-  <div class="container">
-    <div class="exercises-wrapper">
-      <ul id="exercises-list" class="exercises-grid"></ul>
-      <p id="exercises-error" class="exercises-error-message is-hidden">
-        No exercises found. Please try another category.
-      </p>
-    </div>
+    
   </div>
 </section>
