@@ -266,7 +266,7 @@
 /* DESKTOP RESPONSIVE SYSTEM (1440px+ Viewports) */
 @media screen and (min-width: 1440px) {
   .footer {
-    padding-bottom: 30px;
+    padding-bottom: 18px;
   }
 
   .footer-main-content {
