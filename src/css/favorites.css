@@ -1,0 +1,58 @@
+/* FAVORITES PAGE LAYOUT (Mobile Base)*/
+.favorites-wrapper {
+  display: block;
+  margin-top: 40px;
+}
+
+.favorites-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.favorites-list .exercise-card {
+  max-width: 335px;
+}
+
+/* TABLET LAYOUT 768px+ */
+@media screen and (min-width: 768px) {
+  .favorites-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .favorites-list .exercise-card {
+    max-width: 344px;
+  }
+}
+
+/* DESKTOP LAYOUT 1440px+ */
+@media screen and (min-width: 1440px) {
+  .favorites-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .favorites-left-panel {
+    width: 444px;
+    flex-shrink: 0;
+  }
+
+  .favorites-right-panel {
+    flex-grow: 1;
+  }
+
+  .favorites-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .favorites-list .exercise-card {
+    max-width: 405px;
+  }
+}
