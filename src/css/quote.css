@@ -1,0 +1,84 @@
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.quote-card {
+  background: #242424;
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.icon-quote{
+  fill: #f4f4f4;
+}
+
+.quote-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* .icon-inverted-commas {
+  fill: #f4f4f4;
+} */
+
+.quote-text {
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.quote-author {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+.quote-img{
+  width: 335;
+  height: 242;
+}
+
+.daily-norm {
+  display: flex;
+  gap: 16px;
+  background: #f3f3f3;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* .icon-black-dumbbells{
+  fill: #f4f4f4;
+} */
+
+.daily-title h3 {
+  margin-bottom: 8px;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+  .quote-section {
+    flex-direction: row;
+  }
+
+  .quote-card,
+  .sport-card {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1440px) {
+  .quote-section {
+    gap: 32px;
+  }
+
+  .quote-card,
+  .sport-card {
+    padding: 32px;
+  }
+}

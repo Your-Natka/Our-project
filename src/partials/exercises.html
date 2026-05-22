@@ -1,5 +1,20 @@
-<section class="exercises">
-    <div class="container">
-        <ul class="exercises-list"></ul>
+<section class="exercises-section" id="exercises-section">
+  <div class="container">
+
+    <!-- Основний контент: Універсальна сітка для категорій та вправ -->
+    <div class="exercises-content">
+      <ul class="exercises-list" id="exercises-list">
+        <!-- Вміст рендериться динамічно через JS/TS -->
+      </ul>
+
+      <!-- Блок для помилки або порожнього результату -->
+      <div class="exercises-error is-hidden" id="exercises-error">
+        <p class="error-text">Нічого не знайдено. Спробуйте пізніше</p>
+      </div>
+
+      <!-- Контейнер для пагінації -->
+      <div class="pagination-container" id="exercises-pagination"></div>
     </div>
+
+  </div>
 </section>

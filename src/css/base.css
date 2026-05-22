@@ -23,3 +23,8 @@ body {
 main {
   flex-grow: 1;
 }
+
+.is-hidden {
+  display: none !important;
+  position: absolute;
+}
