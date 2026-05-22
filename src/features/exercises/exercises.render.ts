@@ -1,16 +1,26 @@
 import sprite from '../../assets/sprite.svg';
 
-export function renderExercises(exercises, container) {
+interface Exercise {
+  _id: string;
+  name: string;
+  bodyPart: string;
+  target: string;
+  rating: number;
+  burnedCalories: number;
+}
+
+export function renderExercises(exercises: Exercise[], container: HTMLElement): void {
   container.innerHTML = exercises.map(ex => {
     const name = ex.name[0].toUpperCase() + ex.name.slice(1);
     const bodyPart = ex.bodyPart[0].toUpperCase() + ex.bodyPart.slice(1);
     const target = ex.target[0].toUpperCase() + ex.target.slice(1);
+    const formattedRating = Number(ex.rating).toFixed(1);
 
     return `
       <li class="exercise-card">
         <div class="exercise-card-header">
           <span class="exercise-badge">Workout</span>
-          <span class="exercise-rating">${Math.round(ex.rating)}.0</span>
+          <span class="exercise-rating">${formattedRating}</span>
           <svg class="icon-star" width="18" height="18">
             <use href="${sprite}#icon-star"></use>
           </svg>
@@ -39,14 +49,14 @@ export function renderExercises(exercises, container) {
   }).join('');
 }
 
-export function toggleError(show) {
+export function toggleError(show: boolean): void {
   const errorElement = document.getElementById('exercises-error');
   const listElement = document.getElementById('exercises-list');
 
   if (show) {
-    listElement.innerHTML = '';
-    errorElement.classList.remove('is-hidden');
+    if (listElement) listElement.innerHTML = '';
+    if (errorElement) errorElement.classList.remove('is-hidden');
   } else {
-    errorElement.classList.add('is-hidden');
+    if (errorElement) errorElement.classList.add('is-hidden');
   }
 }
