@@ -1,7 +1,9 @@
 import { getExercises } from './exercises.api';
 import { renderExercises } from './exercises.render';
-import { clearExerciseSearch, initExerciseSearch } from './exercises.search';
 import { openExerciseModal } from './exercises.modal';
+import { clearExerciseSearch, initExerciseSearch } from './exercises.search';
+import { renderPagination } from '../../render/renderPagination';
+import { exerciseCategoryMapper } from '../../domain/exercises/exercises.mapper';
 
 const refs = {
   exercisesContainer: document.querySelector('#exercises-list'),
@@ -13,41 +15,43 @@ const refs = {
 const DEFAULT_FILTER_TYPE = 'Muscles';
 const DEFAULT_PAGE = 1;
 const EXERCISES_LIMIT = 10;
+
 const SEARCH_ERROR_MESSAGE =
   'Нічого не знайдено за вашим запитом. Спробуйте інше слово';
 
 const filterParamMap = {
-  Muscles: 'muscles',
+  Muscles: 'target',
   'Body parts': 'bodypart',
   Equipment: 'equipment',
 };
 
+// ===== STATE =====
 let currentFilterType = DEFAULT_FILTER_TYPE;
 let currentCategoryName = '';
 let currentKeyword = '';
 let currentPage = DEFAULT_PAGE;
 
+// ===== INIT =====
 export function initExercises() {
   initExerciseSearch(handleSearchSubmit);
 
-  if (refs.exercisesContainer) {
-    refs.exercisesContainer.addEventListener('click', handleStartButtonClick);
-  }
+  refs.exercisesContainer?.addEventListener('click', handleStartButtonClick);
 }
 
+// ===== EVENTS =====
 async function handleStartButtonClick(event) {
   const startBtn = event.target.closest('.start-btn');
   if (!startBtn) return;
 
   const card = startBtn.closest('.exercise-card');
-  if (!card) return;
+  const exerciseId = card?.dataset?.id;
 
-  const exerciseId = card.dataset.id;
   if (!exerciseId) return;
 
   openExerciseModal(exerciseId);
 }
 
+// ===== PUBLIC API =====
 export async function loadExercisesByFilter(
   categoryName,
   filterType = DEFAULT_FILTER_TYPE
@@ -56,8 +60,8 @@ export async function loadExercisesByFilter(
   currentCategoryName = categoryName;
   currentKeyword = '';
   currentPage = DEFAULT_PAGE;
-  clearExerciseSearch();
 
+  clearExerciseSearch();
   await loadExercises();
 }
 
@@ -65,10 +69,12 @@ export function resetExerciseSearch() {
   currentCategoryName = '';
   currentKeyword = '';
   currentPage = DEFAULT_PAGE;
+
   removeExercisesView();
   clearExerciseSearch();
 }
 
+// ===== SEARCH =====
 async function handleSearchSubmit(keyword) {
   if (!currentCategoryName) return;
 
@@ -78,34 +84,55 @@ async function handleSearchSubmit(keyword) {
   await loadExercises();
 }
 
+// ===== MAIN LOADER =====
 async function loadExercises() {
   if (!refs.exercisesContainer || !refs.errorBlock) return;
 
   try {
     hideSearchError();
-    clearExercisePagination();
+    clearPagination();
+    console.log('EXERCISES DEBUG:', {
+      filterType: currentFilterType,
+      filterParam: filterParamMap[currentFilterType],
+      category: currentCategoryName,
+      query: buildExercisesQuery(),
+    });
 
     const data = await getExercises(buildExercisesQuery());
     const exercises = data.results || [];
 
-    if (exercises.length === 0) {
+    if (!exercises.length) {
       showSearchError();
       return;
     }
 
     setExercisesView();
     renderExercises(exercises, refs.exercisesContainer);
+
+    renderPagination(
+      data.page,
+      data.totalPages,
+      refs.pagination,
+      handlePageChange
+    );
   } catch (error) {
+    console.error(error);
     showSearchError();
   }
 }
 
+// ===== QUERY BUILDER =====
 function buildExercisesQuery() {
   const params = new URLSearchParams();
+
   const filterParam =
     filterParamMap[currentFilterType] || filterParamMap[DEFAULT_FILTER_TYPE];
 
-  params.set(filterParam, currentCategoryName.toLowerCase());
+  const mappedValue =
+    exerciseCategoryMapper?.[currentFilterType]?.[currentCategoryName] ||
+    currentCategoryName.toLowerCase();
+
+  params.set(filterParam, mappedValue);
 
   if (currentKeyword) {
     params.set('keyword', currentKeyword);
@@ -117,8 +144,31 @@ function buildExercisesQuery() {
   return params.toString();
 }
 
+// ===== PAGINATION =====
+function handlePageChange(page) {
+  currentPage = page;
+  loadExercises();
+}
+
+function clearPagination() {
+  if (refs.pagination) {
+    refs.pagination.innerHTML = '';
+  }
+}
+
+// ===== UI STATES =====
+function setExercisesView() {
+  refs.exercisesContainer.classList.add('is-exercises-view');
+}
+
+function removeExercisesView() {
+  refs.exercisesContainer?.classList.remove('is-exercises-view');
+}
+
+// ===== ERROR HANDLING =====
 function showSearchError() {
   setExercisesView();
+
   refs.exercisesContainer.innerHTML = '';
 
   if (refs.errorText) {
@@ -126,25 +176,9 @@ function showSearchError() {
   }
 
   refs.errorBlock.classList.remove('is-hidden');
-  clearExercisePagination();
+  clearPagination();
 }
 
 function hideSearchError() {
   refs.errorBlock.classList.add('is-hidden');
-}
-
-function clearExercisePagination() {
-  if (refs.pagination) {
-    refs.pagination.innerHTML = '';
-  }
-}
-
-function setExercisesView() {
-  refs.exercisesContainer.classList.add('is-exercises-view');
-}
-
-function removeExercisesView() {
-  if (refs.exercisesContainer) {
-    refs.exercisesContainer.classList.remove('is-exercises-view');
-  }
 }
