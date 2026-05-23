@@ -4,6 +4,7 @@ import { renderExercises } from '../render/renderExercises.js';
 import { openExerciseModal } from '../features/exercises/exercises.modal.js';
 
 import { initQuote } from '../js/quote.js';
+import '../js/header.js';
 
 const FAVORITES_KEY = 'favorite-exercises';
 
