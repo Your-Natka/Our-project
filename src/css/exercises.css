@@ -7,6 +7,25 @@
   list-style: none;
 }
 
+.exercises-list.is-exercises-view {
+  grid-template-columns: 1fr;
+}
+
+.exercises-list.is-exercises-view .exercise-card {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.exercises-list.is-exercises-view .exercise-card h3,
+.exercises-list.is-exercises-view .exercise-card p {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .home-layout-wrapper {
   display: block;
 }
@@ -71,6 +90,11 @@
     row-gap: 32px;
     column-gap: 15px;
   }
+
+  .exercises-list.is-exercises-view {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+  }
 }
 
 /* ==========================================================================
@@ -94,6 +118,11 @@
 
   .category-card {
     height: 242px;
+  }
+
+  .exercises-list.is-exercises-view {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 15px;
   }
 
   /* Блок цитати: фіксований ліворуч, не стискається */

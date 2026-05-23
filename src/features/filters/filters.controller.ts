@@ -1,6 +1,9 @@
 import { getFilters } from './filters.api';
 import { renderCategoryCards, renderPagination } from './filters.render';
-import { loadExercisesByFilter } from '../exercises/exercises.controller';
+import {
+  loadExercisesByFilter,
+  resetExerciseSearch,
+} from '../exercises/exercises.controller';
 import {
   initNavigation,
   updateNavigationHeader,
@@ -50,6 +53,7 @@ async function loadFilters(type: string): Promise<void> {
     updateNavigationHeader('Exercises');
     setFilterButtonsVisibility(true);
     setSearchInputVisibility(false);
+    resetExerciseSearch();
 
     // Динамічний ліміт: 9 для мобільних, 12 для інших екранів
     const limit = window.innerWidth < 768 ? 9 : 12;
@@ -121,7 +125,7 @@ function handleCategoryClick(event: Event): void {
   refs.categoriesList.innerHTML = '';
 
   // 5. Запускаємо логіку колеги: завантажуємо вправи для обраної категорії!
-  loadExercisesByFilter(categoryName);
+  loadExercisesByFilter(categoryName, activeFilter);
 }
 
 // Колбек-функція для повернення назад до списку категорій
@@ -136,6 +140,7 @@ function handleBackNavigation(): void {
   setSearchInputVisibility(false);
 
   // 4. Перезавантажуємо поточний вибраний фільтр категорій
+  resetExerciseSearch();
   currentPage = 1;
   loadFilters(activeFilter);
 }

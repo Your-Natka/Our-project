@@ -9,7 +9,7 @@ const navRefs = {
   title: document.getElementById('section-title') as HTMLHeadingElement | null,
   subtitle: document.getElementById('section-subtitle') as HTMLSpanElement | null,
   filterList: document.getElementById('section-filter-list') as HTMLUListElement | null,
-  searchBox: document.getElementById('section-search-box') as HTMLDivElement | null,
+  searchBox: document.getElementById('section-search-box') as HTMLFormElement | null,
 };
 
 /**
