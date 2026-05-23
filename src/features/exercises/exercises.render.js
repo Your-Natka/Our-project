@@ -3,11 +3,6 @@ export function renderExercises(exercises, container) {
     .map(
       ex => `
         <div class="exercise-card">
-<<<<<<< HEAD
-          <h3>${ex.name}</h3>
-          <p>${ex.bodyPart}</p>
-          <p>${ex.target}</p>
-=======
           <div class="card-header">
             <div class="badge-wrapper">
               <span class="workout-badge">Workout</span>
@@ -21,7 +16,7 @@ export function renderExercises(exercises, container) {
             <button class="start-btn" type="button">
               Start
               <svg class="arrow-icon" width="16" height="16">
-                <use href="./sprite.svg#icon-arrow"></use>
+                <use href="./sprite.svg#icon-arrow-right"></use>
               </svg>
             </button>
           </div>
@@ -46,7 +41,6 @@ export function renderExercises(exercises, container) {
               <span class="info-label">Target:</span> ${ex.target}
             </li>
           </ul>
->>>>>>> b355279 (temp: latest edits with TL)
         </div>
       `
     )
