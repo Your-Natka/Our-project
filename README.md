@@ -1,113 +1,175 @@
-# Vanilla App Template
+<div align="center">
 
-Цей проект було створено за допомогою Vite. Для знайомства та налаштування
-додаткових можливостей [звернись до документації](https://vitejs.dev/).
+<img src="./team-logo.webp" alt="JS Olympic — team logo" width="320" />
 
-## Створення репозиторію за шаблоном
+# YourEnergy
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проекту. Для цього натисни на кнопку `«Use this template»` і
-обери опцію `«Create a new repository»`, як показано на зображенні.
+**Тренуйся розумно. Заряджайся енергією.**
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+_Фінальний командний проєкт курсу JavaScript від команди_ **JS Olympic** 🏅
 
-На наступному етапі відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся, що репозиторій публічний, після чого натисни
-кнопку `«Create repository from template»`.
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](#)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-181717?style=for-the-badge&logo=github&logoColor=white)](https://your-natka.github.io/Our-project/)
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+[🌐 Live Demo](https://your-natka.github.io/Our-project/) ·
+[🎨 Figma](https://www.figma.com/design/1ifqGcQBIzMoc21yIqyV5q/YourEnergy?node-id=2-186)
+· [⚡ API](https://your-energy.b.goit.study/api) ·
+[🐛 Issues](https://github.com/Your-Natka/Our-project/issues)
 
-Після того, як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+</div>
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+---
 
-Проскроливши сторінку до самого кінця, в секції `«Workflow permissions»` обери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проекту.
+## ✨ Про проєкт
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+**YourEnergy** — це сучасний вебзастосунок для тих, хто хоче тримати себе у
+формі. Знайди вправу за групою мʼязів, частиною тіла чи інвентарем, переглянь
+техніку виконання, додай улюблене в обране та читай мотивуючу цитату дня.
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів та папок
-репозиторію-шаблону. Далі працюй з ним, як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби коміти та відправляй
-їх на GitHub.
+Проєкт реалізований як **SPA-подібний мультисторінковий застосунок** на Vite, з
+ручною композицією HTML-партіалів, модульним CSS і чистою архітектурою на
+vanilla JS/TS — без жодного фреймворку.
 
-## Підготовка до роботи
+## 🚀 Можливості
 
-1. Переконайся, що на комп'ютері встановлено LTS-версію Node.js.
-   [Скачай та встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проекту в терміналі командою `npm install`.
-3. Запусти режим розробки, виконавши в терміналі команду `npm run dev`.
-4. Перейдіть у браузері за адресою
-   [http://localhost:5173](http://localhost:5173). Ця сторінка буде автоматично
-   перезавантажуватись після збереження змін у файли проекту.
+- 🏷️ **Категорії вправ** — перемикання між `Muscles`, `Body parts`, `Equipment`
+- 🔍 **Розумний пошук та фільтрація** вправ у вибраній категорії
+- 💪 **Картки вправ** із рейтингом, рівнем складності та групою мʼязів
+- 🪟 **Модальне вікно** з детальним описом вправи та можливістю оцінити її
+- ❤️ **Обране** — збереження улюблених вправ у `localStorage`
+- 💬 **Цитата дня** — щоденна порція мотивації з API
+- 📄 **Пагінація** результатів
+- 📱 **Повністю адаптивний дизайн** (Mobile / Tablet / Desktop)
+- 🍔 **Бургер-меню** для мобільних пристроїв
+- 🔔 **Toast-сповіщення** через [iziToast](https://izitoast.marcelodolza.com/)
 
-## Файли і папки
+## 🛠️ Технології
 
-- Файли розмітки компонентів сторінки повинні лежати в папці `src/partials` та
-  імпортуватись до файлу `index.html`. Наприклад, файл з розміткою хедера
-  `header.html` створюємо у папці `partials` та імпортуємо в `index.html`.
-- Файли стилів повинні лежати в папці `src/css` та імпортуватись до HTML-файлів
-  сторінок. Наприклад, для `index.html` файл стилів називається `index.css`.
-- Зображення додавай до папки `src/img`. Збирач оптимізує їх, але тільки при
-  деплої продакшн версії проекту. Все це відбувається у хмарі, щоб не
-  навантажувати твій комп'ютер, тому що на слабких компʼютерах це може зайняти
-  багато часу.
+| Категорія      | Інструменти                                                                       |
+| -------------- | --------------------------------------------------------------------------------- |
+| **Збірка**     | [Vite](https://vitejs.dev/), `vite-plugin-html-inject`, `vite-plugin-full-reload` |
+| **Мови**       | JavaScript (ES2022+), TypeScript, HTML5, CSS3                                     |
+| **Стилі**      | Modern Normalize, PostCSS, `postcss-sort-media-queries`, DM Sans (Google Fonts)   |
+| **UX**         | iziToast (нотифікації), власні модалки, бургер-меню                               |
+| **API**        | [Your Energy API](https://your-energy.b.goit.study/api) (GoIT)                    |
+| **Деплой**     | GitHub Actions → GitHub Pages                                                     |
+| **Code style** | Prettier, EditorConfig                                                            |
 
-## Деплой
+## 📁 Структура проєкту
 
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора `--base=/<REPO>/`, для команди `build`,
-замінивши `<REPO>` на назву свого репозиторію, та відправити зміни на GitHub.
-
-```json
-"build": "vite build --base=/<REPO>/",
+```
+Our-project/
+├── src/
+│   ├── api/              # Робота з REST API (exercises, filters, quote)
+│   ├── assets/           # Іконки, шрифти, sprite.svg
+│   ├── css/              # base / components / layout / utils / styles.css
+│   ├── features/         # Бізнес-логіка фіч (exercises, filters)
+│   ├── helpers/          # Допоміжні утиліти
+│   ├── js/               # Загальна JS-логіка
+│   ├── modal/            # Логіка модальних вікон
+│   ├── pages/            # Точки входу для сторінок
+│   ├── partials/         # HTML-партіали (header, hero, exercises, …)
+│   ├── render/           # Рендер-функції для карток та списків
+│   ├── services/         # Сервіси (favorites, rating, тощо)
+│   ├── storage/          # Робота з localStorage
+│   ├── ts/               # TypeScript-модулі
+│   ├── index.html        # Головна сторінка
+│   ├── favorites.html    # Сторінка обраного
+│   └── main.js           # Точка входу застосунку
+│
+├── team-logo.webp        # Логотип команди JS Olympic
+├── vite.config.js
+├── tsconfig.json
+└── package.json
 ```
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+## ⚡ Швидкий старт
 
-![GitHub Pages settings](./assets/repo-settings.png)
+> Потрібен **Node.js LTS** (≥ 18).
 
-### Статус деплою
+```bash
+# 1. Клонуй репозиторій
+git clone https://github.com/Your-Natka/Our-project.git
+cd Our-project
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+# 2. Встанови залежності
+npm install
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, збірки чи деплою сталася помилка.
+# 3. Запусти dev-сервер
+npm run dev
+```
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+Після цього застосунок буде доступний за адресою
+[http://localhost:5173](http://localhost:5173) з гарячим перезавантаженням.
 
-![Deployment status](./assets/deploy-status.png)
+### Доступні скрипти
 
-### Жива сторінка
+| Команда           | Опис                                        |
+| ----------------- | ------------------------------------------- |
+| `npm run dev`     | Запустити dev-сервер з HMR                  |
+| `npm run build`   | Зібрати продакшн-версію в `dist/`           |
+| `npm run preview` | Запустити локальний preview зібраної версії |
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях репозиторію.
-Наприклад, ось посилання на живу версію для цього репозиторію
+## 🌐 API
 
-[https://goitacademy.github.io/vanilla-app-template/](https://goitacademy.github.io/vanilla-app-template/).
+Проєкт використовує публічне REST API GoIT:
 
-Якщо відкриється порожня сторінка, переконайся, що у вкладці `Console` немає
-помилок пов'язаних з неправильними шляхами до CSS та JS файлів проекту
-(**404**). Швидше за все у тебе неправильне значення прапора `--base` для
-команди `build` у файлі `package.json`.
+```
+https://your-energy.b.goit.study/api
+```
 
-## Як це працює
+Основні ендпоінти, що використовуються:
 
-![How it works](./assets/how-it-works.png)
+- `GET /filters?filter={category}` — список категорій (Muscles / Body parts /
+  Equipment)
+- `GET /exercises?{params}` — список вправ з фільтрами та пагінацією
+- `GET /exercises/:id` — деталі вправи
+- `PATCH /exercises/:id/rating` — оновлення рейтингу
+- `GET /quote` — цитата дня
 
-1. Після кожного пуша у гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) із файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується та
-   проходить лінтинг та збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
-   відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
-   буде вказано в чому проблема.
+## 🚢 Деплой
+
+Продакшн-версія автоматично збирається й деплоїться на **GitHub Pages** (гілка
+`gh-pages`) після кожного оновлення `main` — через GitHub Action
+`.github/workflows/deploy.yml`.
+
+> Не забудь у `package.json` тримати правильний `--base=/Our-project/` для
+> команди `build`, інакше CSS/JS не підвантажаться на продакшені.
+
+## 👥 Команда JS Olympic
+
+<div align="center">
+
+| Учасник               | GitHub                                       |
+| --------------------- | -------------------------------------------- |
+| Natalia Bodnarchuk    | [@Your-Natka](https://github.com/Your-Natka) |
+| Oksana Miazina        | [@PoppyHanna](https://github.com/PoppyHanna) |
+| Maks Lukyanenko       | [@MaksL777](https://github.com/MaksL777)     |
+| Mykola Masiuk         | [@mykolamasiuk](https://github.com/)         |
+| Volodymyr Burtsev     | [@voksus](https://github.com/voksus)         |
+| Yakiv Tsypin (Zexler) | [@Zexler](https://github.com/Zexler)         |
+| Hanna Fedko           | [@PoppyHanna](https://github.com/PoppyHanna) |
+| Oleksandr Tovkailo    | [@Tovchik](https://github.com/Tov4ik)        |
+
+</div>
+
+## 🎨 Дизайн
+
+Макет проєкту створено в Figma:
+**[YourEnergy — Figma file](https://www.figma.com/design/1ifqGcQBIzMoc21yIqyV5q/YourEnergy?node-id=2-186)**
+
+## 📄 Ліцензія
+
+Проєкт створений в освітніх цілях у рамках курсу **GoIT JavaScript**.
+
+---
+
+<div align="center">
+
+Made with ❤️ and a lot of ☕ by **JS Olympic**
+
+</div>

@@ -1,13 +1,19 @@
 import { getFilters } from './filters.api';
-import { renderCategoryCards } from './filters.render';
-import { loadExercisesByFilter } from '../exercises/exercises.controller';
+import { renderCategoryCards, renderPagination } from './filters.render';
+import {
+  loadExercisesByFilter,
+  resetExerciseSearch,
+} from '../exercises/exercises.controller';
+import {
+  initNavigation,
+  updateNavigationHeader,
+  setFilterButtonsVisibility,
+  setSearchInputVisibility,
+} from '../navigation/navigation.controller';
 
 const refs = {
-  section: document.getElementById('exercises-section') as HTMLElement | null,
-  filterList: document.getElementById('exercises-filter-list') as HTMLUListElement | null,
+  filterList: document.getElementById('section-filter-list') as HTMLUListElement | null,
   categoriesList: document.getElementById('exercises-list') as HTMLUListElement | null,
-  title: document.getElementById('exercises-title') as HTMLHeadingElement | null,
-  subtitle: document.getElementById('exercises-subtitle') as HTMLSpanElement | null,
   errorBlock: document.getElementById('exercises-error') as HTMLDivElement | null,
   pagination: document.getElementById('exercises-pagination') as HTMLDivElement | null,
 };
@@ -29,10 +35,8 @@ export function initFilters(): void {
   // Слухаємо кліки по самих картках категорій (Abductors, Abs, тощо)
   refs.categoriesList.addEventListener('click', handleCategoryClick);
 
-  // Слухаємо кліки на заголовок "Exercises" для повернення до категорій
-  if (refs.title) {
-    refs.title.addEventListener('click', handleTitleClick);
-  }
+  // Ініціалізуємо логіку спільного меню навігації з колбеком для повернення назад
+  initNavigation(handleBackNavigation);
 
   // Стартовий запуск: підвантажуємо дефолтний Muscles
   loadFilters(activeFilter);
@@ -44,6 +48,12 @@ async function loadFilters(type: string): Promise<void> {
   try {
     refs.errorBlock.classList.add('is-hidden');
     refs.categoriesList.classList.remove('is-hidden');
+
+    // На старті сторінки гарантуємо базовий стан навігаційної панелі
+    updateNavigationHeader('Exercises');
+    setFilterButtonsVisibility(true);
+    setSearchInputVisibility(false);
+    resetExerciseSearch();
 
     // Динамічний ліміт: 9 для мобільних, 12 для інших екранів
     const limit = window.innerWidth < 768 ? 9 : 12;
@@ -57,7 +67,10 @@ async function loadFilters(type: string): Promise<void> {
     // Відмальовуємо картки категорій з зображеннями
     renderCategoryCards(data.results, refs.categoriesList);
 
-    // Тут у майбутньому підключиться пагінація
+    // TODO: Відмальовуємо пагінацію
+    if (refs.pagination) {
+      renderPagination(data.totalPages, currentPage, refs.pagination);
+    }
   } catch (error) {
     console.error('Помилка завантаження категорій:', error);
     showError();
@@ -82,8 +95,8 @@ async function handleFilterClick(event: Event): Promise<void> {
   clickedBtn.classList.add('active');
   clickedBtn.setAttribute('aria-selected', 'true');
 
-  // Очищуємо хвостик заголовка
-  if (refs.subtitle) refs.subtitle.textContent = '';
+  // Скидаємо хлібні крихти, оскільки ми перемкнули фільтр
+  updateNavigationHeader('Exercises');
 
   await loadFilters(activeFilter);
 }
@@ -93,37 +106,41 @@ function handleCategoryClick(event: Event): void {
   const target = event.target as HTMLElement;
   const card = target.closest('.category-card') as HTMLLIElement | null;
 
-  if (!card || !refs.subtitle || !refs.filterList || !refs.categoriesList) return;
+  if (!card || !refs.categoriesList) return;
 
   const categoryName = card.dataset.category || '';
 
-  // 1. Оновлюємо заголовок секції ( Exercises / Abs )
+  // 1. Оновлюємо заголовок через Navigation API (додаємо Abs, Cardio тощо)
   const capitalizedCategoryName =
     categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
-  refs.subtitle.textContent = ` / ${capitalizedCategoryName}`;
+  updateNavigationHeader('Exercises', capitalizedCategoryName);
 
-  // 2. Ховаємо верхні кнопки-фільтри
-  refs.filterList.classList.add('is-hidden');
+  // 2. Ховаємо кнопки-фільтри через Navigation API
+  setFilterButtonsVisibility(true);
 
-  // 3. Очищуємо контейнер перед рендером вправ Олександра
+  // 3. Показуємо пошуковий рядок через Navigation API
+  setSearchInputVisibility(true);
+
+  // 4. Очищуємо контейнер сітки перед завантаженням карток вправ
   refs.categoriesList.innerHTML = '';
 
-  // 4. Запускаємо логіку колеги: завантажуємо вправи для обраної категорії!
-  loadExercisesByFilter(categoryName);
+  // 5. Запускаємо логіку колеги: завантажуємо вправи для обраної категорії!
+  loadExercisesByFilter(categoryName, activeFilter);
 }
 
-// Клік по заголовку "Exercises" (повернення до категорій)
-function handleTitleClick(): void {
-  // Повертаємося лише тоді, коли ми знаходимося всередині категорії (є підзаголовок)
-  if (!refs.subtitle || !refs.subtitle.textContent || !refs.filterList) return;
+// Колбек-функція для повернення назад до списку категорій
+function handleBackNavigation(): void {
+  // 1. Очищаємо підзаголовок та повертаємо дефолтний заголовок
+  updateNavigationHeader('Exercises');
 
-  // 1. Очищаємо підзаголовок
-  refs.subtitle.textContent = '';
+  // 2. Показуємо верхні фільтри
+  setFilterButtonsVisibility(true);
 
-  // 2. Показуємо кнопки фільтрів
-  refs.filterList.classList.remove('is-hidden');
+  // 3. Ховаємо пошуковий рядок
+  setSearchInputVisibility(false);
 
-  // 3. Перезавантажуємо активний фільтр категорій
+  // 4. Перезавантажуємо поточний вибраний фільтр категорій
+  resetExerciseSearch();
   currentPage = 1;
   loadFilters(activeFilter);
 }
