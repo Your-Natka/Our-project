@@ -72,6 +72,8 @@
 }
 
 .quote-img {
+  height: 242;
+
   display: block;
   width: 100%;
   height: auto;
