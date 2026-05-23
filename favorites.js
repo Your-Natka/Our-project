@@ -1,4 +1,4 @@
-import{t as e}from"./assets/quote-BXOO9LfQ.js";var t=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},n=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},r=e=>e.map(e=>`
+import{n as e,t}from"./assets/quote-BzPD7Nzy.js";var n=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},r=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},i=e=>e.map(e=>`
     <li class="exercise-card" data-id="${e._id}">
       <div class="card-header">
         <div class="badge-wrapper">
@@ -32,12 +32,12 @@ import{t as e}from"./assets/quote-BXOO9LfQ.js";var t=e=>{try{let t=localStorage.
         <li class="card-info-item"><span class="info-label">Target:</span> ${e.target}</li>
       </ul>
     </li>
-  `).join(``),i=`favorite-exercises`,a={favoritesList:document.querySelector(`.favorites-list`)};function o(){a.favoritesList&&(e(),s(),a.favoritesList.addEventListener(`click`,c))}function s(){let e=t(i)||[];if(e.length===0){a.favoritesList.innerHTML=`
+  `).join(``),a=`favorite-exercises`,o={favoritesList:document.querySelector(`.favorites-list`)};function s(){o.favoritesList&&(t(),l(),o.favoritesList.addEventListener(`click`,u),o.favoritesList.addEventListener(`click`,c))}function c(t){let n=t.target.closest(`.start-btn`);if(!n)return;let r=n.closest(`.exercise-card`);if(!r)return;let i=r.dataset.id;i&&e(i)}function l(){let e=n(a)||[];if(e.length===0){o.favoritesList.innerHTML=`
       <div class="favorites-empty-state">
         <p class="favorites-empty-text">
           It appears that you haven't added any exercises to your favorites yet.
           To get started, you can add exercises that you like to your favorites for easier access in the future.
         </p>
       </div>
-    `;return}a.favoritesList.innerHTML=r(e)}function c(e){let r=e.target.closest(`.trash-btn`);if(!r)return;let a=r.closest(`.exercise-card`).dataset.id,o=t(i)||[];o=o.filter(e=>e._id!==a),n(i,o),s()}o();
+    `;return}o.favoritesList.innerHTML=i(e)}function u(e){let t=e.target.closest(`.trash-btn`);if(!t)return;let i=t.closest(`.exercise-card`).dataset.id,o=n(a)||[];o=o.filter(e=>e._id!==i),r(a,o),l()}s();
 //# sourceMappingURL=favorites.js.map
