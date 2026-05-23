@@ -153,7 +153,7 @@ https://your-energy.b.goit.study/api
 | Volodymyr Burtsev     | [@voksus](https://github.com/voksus)         |
 | Yakiv Tsypin (Zexler) | [@Zexler](https://github.com/Zexler)         |
 | Hanna Fedko           | [@PoppyHanna](https://github.com/PoppyHanna) |
-| Oleksandr Tovkailo    | [@Tovchik](https://github.com/Tovchik)       |
+| Oleksandr Tovkailo    | [@Tovchik](https://github.com/Tov4ik)        |
 
 </div>
 
