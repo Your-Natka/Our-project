@@ -110,6 +110,8 @@
 .daily-info {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0;
   padding-left: 16px;
   gap: 2px;
 }
@@ -178,15 +180,23 @@
 
 .quote-fav .daily-info {
   padding: 0;
+  margin-left: 9px;
 }
 
 .quote-fav .icon-dumb-wrap {
-  text-align: center;
+  width: 34px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
 }
 
 .quote-fav .icon-dumb {
+  width: 16px;
+  height: 16px;
   display: flex;
+  align-items: center;
   justify-content: center;
   fill: #242424;
 }
@@ -287,19 +297,23 @@
     height: auto;
   }
 
-
   .daily-text {
-    width: 314px;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     line-height: 16px;
 
-    max-width: none;
     max-height: none;
 
     overflow: visible;
     position: static;
 
     display: block;
+  }
+
+  .quote-home .daily-text {
+    width: 100%;
+    max-width: 100%;
   }
 
   .daily-text::after {
