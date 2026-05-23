@@ -2,7 +2,7 @@ export function renderExercises(exercises, container) {
   container.innerHTML = exercises
     .map(
       ex => `
-        <div class="exercise-card">
+        <li class="exercise-card" data-id="${ex._id}">
           <div class="card-header">
             <div class="badge-wrapper">
               <span class="workout-badge">Workout</span>
@@ -16,7 +16,7 @@ export function renderExercises(exercises, container) {
             <button class="start-btn" type="button">
               Start
               <svg class="arrow-icon" width="16" height="16">
-                <use href="./sprite.svg#icon-arrow-right"></use>
+                <use href="./sprite.svg#icon-arrow"></use>
               </svg>
             </button>
           </div>
@@ -41,7 +41,7 @@ export function renderExercises(exercises, container) {
               <span class="info-label">Target:</span> ${ex.target}
             </li>
           </ul>
-        </div>
+        </li>
       `
     )
     .join('');
