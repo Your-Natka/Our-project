@@ -1,4 +1,4 @@
-import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,t}from"./assets/quote-PHgNJtrP.js";import{t as n}from"./assets/vendor-BQcEvRoX.js";n();async function r(t,n=1,r=12){return e(`/filters?filter=${encodeURIComponent(t)}&page=${n}&limit=${r}`)}function i(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
+import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,t}from"./assets/quote-BXOO9LfQ.js";import{t as n}from"./assets/vendor-BQcEvRoX.js";n();async function r(t,n=1,r=12){return e(`/filters?filter=${encodeURIComponent(t)}&page=${n}&limit=${r}`)}function i(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
       <li class="category-card" data-category="${e}">
         <div class="category-card-bg" style="background-image: linear-gradient(0deg, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.5)), url('${n}');"></div>
         <div class="category-card-content">
@@ -14,14 +14,14 @@ import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,t}from"./assets/quot
               <span class="card-rating">
                 ${Number(e.rating).toFixed(1)}
                 <svg class="star-icon" width="18" height="18">
-                  <use href="./public/sprite.svg#icon-star"></use>
+                  <use href="./sprite.svg#icon-star"></use>
                 </svg>
               </span>
             </div>
             <button class="start-btn" type="button">
               Start
               <svg class="arrow-icon" width="16" height="16">
-                <use href="./public/sprite.svg#icon-arrow-right"></use>
+                <use href="./sprite.svg#icon-arrow-right"></use>
               </svg>
             </button>
           </div>
@@ -29,7 +29,7 @@ import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,t}from"./assets/quot
           <div class="card-title-wrapper">
             <div class="runner-icon-wrapper">
               <svg class="runner-icon" width="14" height="16">
-                <use href="./public/sprite.svg#icon-runner"></use>
+                <use href="./sprite.svg#icon-runner"></use>
               </svg>
             </div>
             <h3 class="exercise-name">${e.name}</h3>
