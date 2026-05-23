@@ -1,18 +1,18 @@
-import{t as e}from"./assets/quote-DMo9YNRQ.js";var t=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},n=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},r=e=>e.map(e=>`
+import{t as e}from"./assets/quote-ApZMzKBx.js";var t=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},n=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},r=e=>e.map(e=>`
     <li class="exercise-card" data-id="${e._id}">
       <div class="card-header">
         <div class="badge-wrapper">
           <span class="workout-badge">Workout</span>
           <button type="button" class="trash-btn" aria-label="Remove from favorites">
             <svg class="trash-icon" width="16" height="16">
-              <use href="./assets/sprite.svg#icon-trash"></use>
+              <use href="./sprite.svg#icon-trash"></use>
             </svg>
           </button>
         </div>
         <button type="button" class="start-btn">
           Start
           <svg class="arrow-icon" width="16" height="16">
-            <use href="./assets/sprite.svg#icon-arrow"></use>
+            <use href="./sprite.svg#icon-arrow"></use>
           </svg>
         </button>
       </div>
@@ -20,7 +20,7 @@ import{t as e}from"./assets/quote-DMo9YNRQ.js";var t=e=>{try{let t=localStorage.
       <div class="card-title-wrapper">
         <div class="runner-icon-wrapper">
           <svg class="runner-icon" width="24" height="24">
-            <use href="./assets/sprite.svg#icon-runner"></use>
+            <use href="./sprite.svg#icon-runner"></use>
           </svg>
         </div>
         <h3 class="exercise-name">${e.name}</h3>
