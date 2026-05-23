@@ -3,6 +3,7 @@ import { renderExercises } from './exercises.render';
 import { openExerciseModal } from './exercises.modal';
 import { clearExerciseSearch, initExerciseSearch } from './exercises.search';
 import { renderPagination } from '../../render/renderPagination';
+import { exerciseCategoryMapper } from '../../domain/exercises/exercises.mapper';
 
 const refs = {
   exercisesContainer: document.querySelector('#exercises-list'),
@@ -19,7 +20,7 @@ const SEARCH_ERROR_MESSAGE =
   'Нічого не знайдено за вашим запитом. Спробуйте інше слово';
 
 const filterParamMap = {
-  Muscles: 'muscles',
+  Muscles: 'target',
   'Body parts': 'bodypart',
   Equipment: 'equipment',
 };
@@ -90,6 +91,12 @@ async function loadExercises() {
   try {
     hideSearchError();
     clearPagination();
+    console.log('EXERCISES DEBUG:', {
+      filterType: currentFilterType,
+      filterParam: filterParamMap[currentFilterType],
+      category: currentCategoryName,
+      query: buildExercisesQuery(),
+    });
 
     const data = await getExercises(buildExercisesQuery());
     const exercises = data.results || [];
@@ -121,7 +128,11 @@ function buildExercisesQuery() {
   const filterParam =
     filterParamMap[currentFilterType] || filterParamMap[DEFAULT_FILTER_TYPE];
 
-  params.set(filterParam, currentCategoryName.toLowerCase());
+  const mappedValue =
+    exerciseCategoryMapper?.[currentFilterType]?.[currentCategoryName] ||
+    currentCategoryName.toLowerCase();
+
+  params.set(filterParam, mappedValue);
 
   if (currentKeyword) {
     params.set('keyword', currentKeyword);
