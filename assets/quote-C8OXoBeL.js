@@ -119,4 +119,4 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
         </div>
     </div>
   `}var d=`quote`;async function f(){let e=localStorage.getItem(d),t=new Date().toISOString().split(`T`)[0];if(e){let n=JSON.parse(e);if(n.date===t){u(n.data);return}}try{let e=await a();localStorage.setItem(d,JSON.stringify({date:t,data:e})),u(e)}catch(e){console.error(e),n.default.error({title:`Error`,message:`Failed to load quote`,position:`topRight`}),u({author:`Unknown`,quote:`Stay active and take care of your health`})}}export{i as n,f as t};
-//# sourceMappingURL=quote-b8ipOzIe.js.map
+//# sourceMappingURL=quote-C8OXoBeL.js.map
