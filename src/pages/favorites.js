@@ -3,6 +3,7 @@ import { save } from '../storage/save.js';
 import { renderExercises } from '../render/renderExercises.js';
 
 import { initQuote } from '../js/quote.js';
+import '../features/navigation/scroll.up';
 
 const FAVORITES_KEY = 'favorite-exercises';
 
