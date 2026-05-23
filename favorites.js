@@ -1,4 +1,4 @@
-import"./assets/styles-49CFgEvE.js";var e=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},t=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},n=e=>e.map(e=>`
+import{t as e}from"./assets/quote-Bx-S0eX5.js";var t=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},n=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},r=e=>e.map(e=>`
     <li class="exercise-card" data-id="${e._id}">
       <div class="card-header">
         <div class="badge-wrapper">
@@ -32,12 +32,12 @@ import"./assets/styles-49CFgEvE.js";var e=e=>{try{let t=localStorage.getItem(e);
         <li class="card-info-item"><span class="info-label">Target:</span> ${e.target}</li>
       </ul>
     </li>
-  `).join(``),r=`favorite-exercises`,i={favoritesList:document.querySelector(`.favorites-list`)};function a(){i.favoritesList&&(o(),i.favoritesList.addEventListener(`click`,s))}function o(){let t=e(r)||[];if(t.length===0){i.favoritesList.innerHTML=`
+  `).join(``),i=`favorite-exercises`,a={favoritesList:document.querySelector(`.favorites-list`)};function o(){a.favoritesList&&(e(),s(),a.favoritesList.addEventListener(`click`,c))}function s(){let e=t(i)||[];if(e.length===0){a.favoritesList.innerHTML=`
       <div class="favorites-empty-state">
         <p class="favorites-empty-text">
-          It appears that you haven't added any exercises to your favorites yet. 
+          It appears that you haven't added any exercises to your favorites yet.
           To get started, you can add exercises that you like to your favorites for easier access in the future.
         </p>
       </div>
-    `;return}i.favoritesList.innerHTML=n(t)}function s(n){let i=n.target.closest(`.trash-btn`);if(!i)return;let a=i.closest(`.exercise-card`).dataset.id,s=e(r)||[];s=s.filter(e=>e._id!==a),t(r,s),o()}a();
+    `;return}a.favoritesList.innerHTML=r(e)}function c(e){let r=e.target.closest(`.trash-btn`);if(!r)return;let a=r.closest(`.exercise-card`).dataset.id,o=t(i)||[];o=o.filter(e=>e._id!==a),n(i,o),s()}o();
 //# sourceMappingURL=favorites.js.map
