@@ -20,10 +20,10 @@ export function renderQuote(quote) {
           <div class="quote">
 
           <div class="quote-card">
-            <div class="qoute-top">
+            <div class="quote-top">
               <div class="icon-quote">
                 <svg width="34" height="32">
-                <use href="../assets/sprite.svg#icon-run-man"></use>
+                <use href="./sprite.svg#icon-run-man"></use>
                 </svg>
               </div>
               <div class="quote-content">
@@ -34,7 +34,7 @@ export function renderQuote(quote) {
 
                   <div class="icon-quote">
                     <svg width="20" height="20">
-                      <use href="../assets/sprite.svg#icon-inverted-commas"></use>
+                      <use href="./sprite.svg#icon-inverted-commas"></use>
                     </svg>
                   </div>
                 </div>
@@ -60,7 +60,7 @@ export function renderQuote(quote) {
                 ${img.desktop.avif2x} 2x
               "
               type="image/avif"
-              media="(min-width: 1280px)"
+              media="(min-width: 1440px)"
             />
             <source
               srcset="
@@ -68,7 +68,7 @@ export function renderQuote(quote) {
                 ${img.tablet.avif2x} 2x
               "
               type="image/avif"
-              media="(min-width: 768px) and (max-width: 1279px)"
+              media="(min-width: 768px) and (max-width: 1439px)"
             />
             <source
               srcset="
@@ -85,7 +85,7 @@ export function renderQuote(quote) {
                 ${img.desktop.webp2x} 2x
               "
               type="image/webp"
-              media="(min-width: 1280px)"
+              media="(min-width: 1440px)"
             />
             <source
               srcset="
@@ -93,7 +93,7 @@ export function renderQuote(quote) {
                 ${img.tablet.webp2x} 2x
               "
               type="image/webp"
-              media="(min-width: 768px) and (max-width: 1279px)"
+              media="(min-width: 768px) and (max-width: 1439px)"
             />
             <source
               srcset="
@@ -121,7 +121,7 @@ export function renderQuote(quote) {
 
           <div class="icon-quote icon-dumb-wrap">
             <svg class="icon-dumb" >
-              <use href="../assets/sprite.svg#icon-black-dumbbells"></use>
+              <use href="./sprite.svg#icon-black-dumbbells"></use>
             </svg>
           </div>
 
