@@ -8,14 +8,14 @@ export const renderExercises = exercises => {
           <span class="workout-badge">Workout</span>
           <button type="button" class="trash-btn" aria-label="Remove from favorites">
             <svg class="trash-icon" width="16" height="16">
-              <use href="./assets/sprite.svg#icon-trash"></use>
+              <use href="./sprite.svg#icon-trash"></use>
             </svg>
           </button>
         </div>
         <button type="button" class="start-btn">
           Start
           <svg class="arrow-icon" width="16" height="16">
-            <use href="./assets/sprite.svg#icon-arrow"></use>
+            <use href="./sprite.svg#icon-arrow"></use>
           </svg>
         </button>
       </div>
@@ -23,7 +23,7 @@ export const renderExercises = exercises => {
       <div class="card-title-wrapper">
         <div class="runner-icon-wrapper">
           <svg class="runner-icon" width="24" height="24">
-            <use href="./assets/sprite.svg#icon-runner"></use>
+            <use href="./sprite.svg#icon-runner"></use>
           </svg>
         </div>
         <h3 class="exercise-name">${exercise.name}</h3>
