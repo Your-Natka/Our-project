@@ -7,6 +7,7 @@ import { renderQuote } from '../render/renderQuote';
 const STORAGE_KEY = 'quote';
 
 export async function initQuote() {
+
   const savedQuote = localStorage.getItem(STORAGE_KEY);
 
   const today = new Date().toISOString().split('T')[0];
