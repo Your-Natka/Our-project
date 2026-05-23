@@ -2,6 +2,8 @@ import { load } from '../storage/load.js';
 import { save } from '../storage/save.js';
 import { renderExercises } from '../render/renderExercises.js';
 
+import { initQuote } from '../js/quote.js';
+
 const FAVORITES_KEY = 'favorite-exercises';
 
 const refs = {
@@ -10,6 +12,9 @@ const refs = {
 
 function initFavorites() {
   if (!refs.favoritesList) return;
+
+  // Quote
+  initQuote();
 
   renderFavoritesList();
 
@@ -23,7 +28,7 @@ function renderFavoritesList() {
     refs.favoritesList.innerHTML = `
       <div class="favorites-empty-state">
         <p class="favorites-empty-text">
-          It appears that you haven't added any exercises to your favorites yet. 
+          It appears that you haven't added any exercises to your favorites yet.
           To get started, you can add exercises that you like to your favorites for easier access in the future.
         </p>
       </div>
