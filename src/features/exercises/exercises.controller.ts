@@ -82,4 +82,4 @@ if (exercisesContainer) {
 
 
 
-loadExercisesByFilter('bodypart', 's');
+// loadExercisesByFilter('bodypart', 'back');
