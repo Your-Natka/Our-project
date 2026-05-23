@@ -9,6 +9,13 @@
   margin-bottom: 20px;
 }
 
+.search-and-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 .section-title {
   font-family: 'DM Sans', sans-serif;
   font-size: 28px;
@@ -40,6 +47,7 @@
 
 .filter-btn {
   position: relative;
+  text-wrap: nowrap;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -133,12 +141,16 @@
 /* Адаптивність */
 @media screen and (min-width: 768px) {
   .section-navigation {
-    display: grid;
-    grid-template-columns: 270px minmax(0, 1fr);
-    align-items: center;
-    column-gap: 32px;
+    display: flex;
+    align-items: flex-start;
     row-gap: 32px;
     margin-bottom: 32px;
+  }
+
+  .search-and-filter-wrapper {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .section-title {
@@ -166,7 +178,7 @@
 
   .search-box {
     grid-column: 1;
-    max-width: 270px;
+    width: 273px;
   }
 }
 
@@ -176,7 +188,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+  }
+
+  .search-and-filter-wrapper {
+    align-items: center;
+    width: auto;
+    gap: 30px;
   }
 
   .section-title,
@@ -186,7 +203,6 @@
   }
 
   .filter-list {
-    justify-content: flex-start;
-    gap: 20px;
+    flex-wrap: nowrap;
   }
 }
