@@ -1,9 +1,12 @@
 import { load } from '../storage/load.js';
 import { save } from '../storage/save.js';
 import { renderExercises } from '../render/renderExercises.js';
+import { openExerciseModal } from '../features/exercises/exercises.modal.js';
 
 import { initQuote } from '../js/quote.js';
+
 import '../features/navigation/scroll.up';
+import '../js/header.js';
 
 const FAVORITES_KEY = 'favorite-exercises';
 
@@ -20,6 +23,20 @@ function initFavorites() {
   renderFavoritesList();
 
   refs.favoritesList.addEventListener('click', handleRemoveFavorite);
+  refs.favoritesList.addEventListener('click', handleStartButtonClick);
+}
+
+function handleStartButtonClick(event) {
+  const startBtn = event.target.closest('.start-btn');
+  if (!startBtn) return;
+
+  const card = startBtn.closest('.exercise-card');
+  if (!card) return;
+
+  const exerciseId = card.dataset.id;
+  if (!exerciseId) return;
+
+  openExerciseModal(exerciseId);
 }
 
 function renderFavoritesList() {

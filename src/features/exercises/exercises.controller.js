@@ -1,6 +1,7 @@
 import { getExercises } from './exercises.api';
 import { renderExercises } from './exercises.render';
 import { clearExerciseSearch, initExerciseSearch } from './exercises.search';
+import { openExerciseModal } from './exercises.modal';
 
 const refs = {
   exercisesContainer: document.querySelector('#exercises-list'),
@@ -28,6 +29,23 @@ let currentPage = DEFAULT_PAGE;
 
 export function initExercises() {
   initExerciseSearch(handleSearchSubmit);
+
+  if (refs.exercisesContainer) {
+    refs.exercisesContainer.addEventListener('click', handleStartButtonClick);
+  }
+}
+
+async function handleStartButtonClick(event) {
+  const startBtn = event.target.closest('.start-btn');
+  if (!startBtn) return;
+
+  const card = startBtn.closest('.exercise-card');
+  if (!card) return;
+
+  const exerciseId = card.dataset.id;
+  if (!exerciseId) return;
+
+  openExerciseModal(exerciseId);
 }
 
 export async function loadExercisesByFilter(
