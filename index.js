@@ -1,4 +1,4 @@
-import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,t}from"./assets/quote-C8OXoBeL.js";import{t as n}from"./assets/vendor-BQcEvRoX.js";n();async function r(t,n=1,r=12){return e(`/filters?filter=${encodeURIComponent(t)}&page=${n}&limit=${r}`)}function i(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
+import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,t}from"./assets/quote-PHgNJtrP.js";import{t as n}from"./assets/vendor-BQcEvRoX.js";n();async function r(t,n=1,r=12){return e(`/filters?filter=${encodeURIComponent(t)}&page=${n}&limit=${r}`)}function i(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
       <li class="category-card" data-category="${e}">
         <div class="category-card-bg" style="background-image: linear-gradient(0deg, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.5)), url('${n}');"></div>
         <div class="category-card-content">
