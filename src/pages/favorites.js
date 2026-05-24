@@ -4,8 +4,7 @@ import { renderExercises } from '../render/renderExercises.js';
 import { openExerciseModal } from '../features/exercises/exercises.modal.js';
 import { hideLoader, showLoader } from '../helpers/loader.js';
 import { initQuote } from '../js/quote.js';
-import { renderPagination } from '../render/renderPagination.js'; // 1. Імпортуємо твою пагінацію
-
+import { renderPagination } from '../render/renderPagination.js'; 
 import '../features/navigation/scroll.up.js';
 import '../js/header.js';
 
@@ -13,8 +12,7 @@ const FAVORITES_KEY = 'favorite-exercises';
 
 const refs = {
   favoritesList: document.querySelector('.favorites-list'),
-  paginationContainer: document.querySelector('.favorites-pagination'), // 2. Знаходимо контейнер
-};
+  paginationContainer: document.querySelector('.favorites-pagination'), 
 
 async function initFavorites() {
   if (!refs.favoritesList) return;
