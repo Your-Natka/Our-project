@@ -3,16 +3,16 @@ import { save } from '../storage/save.js';
 import { renderExercises } from '../render/renderExercises.js';
 import { openExerciseModal } from '../features/exercises/exercises.modal.js';
 import { hideLoader, showLoader } from '../helpers/loader.js';
-
 import { initQuote } from '../js/quote.js';
-
-import '../features/navigation/scroll.up';
+import { renderPagination } from '../render/renderPagination.js';
+import '../features/navigation/scroll.up.js';
 import '../js/header.js';
 
 const FAVORITES_KEY = 'favorite-exercises';
 
 const refs = {
   favoritesList: document.querySelector('.favorites-list'),
+  paginationContainer: document.querySelector('.favorites-pagination'),
 };
 
 async function initFavorites() {
@@ -48,7 +48,7 @@ function handleStartButtonClick(event) {
   openExerciseModal(exerciseId);
 }
 
-function renderFavoritesList() {
+function renderFavoritesList(page = 1) {
   const favorites = load(FAVORITES_KEY) || [];
 
   if (favorites.length === 0) {
@@ -60,10 +60,45 @@ function renderFavoritesList() {
         </p>
       </div>
     `;
+
+    if (refs.paginationContainer) {
+      refs.paginationContainer.innerHTML = '';
+    }
     return;
   }
 
-  refs.favoritesList.innerHTML = renderExercises(favorites);
+  // Ліміти карток залежно від екрана
+  let limit = 100; // Desktop (скролбар)
+  if (window.innerWidth < 768) {
+    limit = 8; // Mobile
+  } else if (window.innerWidth < 1440) {
+    limit = 10; // Tablet
+  }
+
+  const totalPages = Math.ceil(favorites.length / limit);
+
+  if (page > totalPages) {
+    renderFavoritesList(totalPages);
+    return;
+  }
+
+  const startIndex = (page - 1) * limit;
+  const paginatedExercises = favorites.slice(startIndex, startIndex + limit);
+
+  refs.favoritesList.innerHTML = renderExercises(paginatedExercises);
+
+  if (refs.paginationContainer) {
+    if (totalPages > 1 && window.innerWidth < 1440) {
+      renderPagination(page, totalPages, refs.paginationContainer, newPage => {
+        renderFavoritesList(newPage);
+        const listPosition =
+          refs.favoritesList.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: listPosition - 100, behavior: 'smooth' });
+      });
+    } else {
+      refs.paginationContainer.innerHTML = '';
+    }
+  }
 }
 
 function handleRemoveFavorite(event) {
@@ -78,7 +113,10 @@ function handleRemoveFavorite(event) {
 
   save(FAVORITES_KEY, favorites);
 
-  renderFavoritesList();
+  const activePageBtn = document.querySelector('.pagination-btn.active');
+  const currentPage = activePageBtn ? Number(activePageBtn.dataset.page) : 1;
+
+  renderFavoritesList(currentPage);
 }
 
 initFavorites();

@@ -1,8 +1,9 @@
 /* FAVORITES PAGE LAYOUT (Mobile Base)*/
-.favorites-wrapper {
-  display: block;
-  margin-top: 20px;
+.favorites {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
+
 .favorites-title {
   font-family: 'DM Sans', sans-serif;
   font-size: 28px;
@@ -11,9 +12,13 @@
   color: #242424;
   margin: 0;
   text-transform: capitalize;
-
   line-height: 1.09;
   margin-top: 80px;
+}
+
+.favorites-wrapper {
+  display: block;
+  margin-top: 20px;
 }
 
 .favorites-list {
@@ -27,6 +32,7 @@
 
 .favorites-list .exercise-card {
   max-width: 335px;
+  margin: 0 auto;
 }
 
 .favorites-empty-text {
@@ -41,6 +47,7 @@
   .favorites-wrapper {
     margin-top: 32px;
   }
+
   .favorites-title {
     font-size: 44px;
     margin-top: 100px;
@@ -48,13 +55,18 @@
 
   .favorites-list .exercise-card {
     max-width: 344px;
+    margin: 0;
   }
-  .favorites-right-panel {
-    margin-top: 132px;
+
+  .favorites-list .exercise-name {
+    line-height: 1.33;
   }
-  .favorites-list {
-    padding: 0px 75px;
+
+  .favorites-empty-state {
+    max-width: 554px;
+    margin: 100px auto;
   }
+
   .favorites-empty-text {
     display: flex;
     justify-content: center;
@@ -63,9 +75,17 @@
     font-size: 18px;
     line-height: 1.5;
   }
+
+  .favorites-right-panel {
+    margin-top: 132px;
+  }
+
+  .favorites-list {
+    padding: 0px 75px;
+  }
 }
 
-/* DESKTOP LAYOUT 1440px+ */
+/* DESKTOP LAYOUT (1440px+)*/
 @media screen and (min-width: 1440px) {
   .favorites-wrapper {
     display: flex;
@@ -74,18 +94,21 @@
     margin: 0;
     padding: 0;
   }
+
   .favorites-title {
     margin-top: 66px;
     margin-bottom: 32px;
   }
+
   .favorites-left-panel {
     width: 494px;
     flex-shrink: 0;
   }
 
   .favorites-right-panel {
-    flex-grow: 1;
+    width: 100%;
   }
+
   .favorites-list {
     margin: 0 148px 0 180px;
     padding: 0;
@@ -93,5 +116,12 @@
 
   .favorites-list .exercise-card {
     max-width: 405px;
+  }
+
+  .favorites-empty-state {
+    grid-column: 1 / -1;
+    max-width: 554px;
+    margin: 144px auto 0 auto;
+    text-align: center;
   }
 }
