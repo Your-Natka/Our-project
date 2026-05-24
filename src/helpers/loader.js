@@ -78,7 +78,7 @@ function hideLocalLoader(container) {
   container.removeAttribute('aria-busy');
 
   const onlyChild = container.children.length === 1 && container.firstElementChild;
-  if (onlyChild?.classList.contains(LOCAL_LOADER_CLASS)) {
+  if (onlyChild && onlyChild.classList.contains(LOCAL_LOADER_CLASS)) {
     container.innerHTML = '';
   }
 }
