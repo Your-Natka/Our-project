@@ -131,6 +131,8 @@
     font-size: 22px;
   }
   .pagination-btn.active {
+    width: 42px;
+    height: 42px;
     font-size: 24px;
   }
   .pagination-side:first-child {
