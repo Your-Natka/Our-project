@@ -1,3 +1,5 @@
+import { hideLoader, showLoader } from '../helpers/loader.js';
+
 export function initFooter() {
   const form = document.getElementById('footer-subscribe-form');
   if (!form) return;
@@ -8,6 +10,8 @@ export function initFooter() {
     if (!emailInput) return;
 
     const emailValue = emailInput.value.trim();
+
+    showLoader();
 
     try {
       const response = await fetch(
@@ -44,6 +48,8 @@ export function initFooter() {
       // Network failures or thrown errors
       alert('A server error occurred. Please try again later.');
       console.error('Subscription system error:', error);
+    } finally {
+      hideLoader();
     }
   });
 }

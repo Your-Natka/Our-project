@@ -1,5 +1,6 @@
 import { getExerciseById } from '../../api/exercises';
 import { createModalMarkup } from '../../render/renderModal';
+import { hideLoader, showLoader } from '../../helpers/loader';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -7,6 +8,8 @@ const modalBackdrop = document.querySelector('.modal-backdrop'); // Переко
 const modalContainer = document.querySelector('#modal-container'); // Місце, куди рендериться контент
 
 export async function openExerciseModal(exerciseId) {
+  showLoader();
+
   try {
     const exerciseData = await getExerciseById(exerciseId);
     const markup = createModalMarkup(exerciseData);
@@ -30,6 +33,8 @@ export async function openExerciseModal(exerciseId) {
       message: 'Не вдалося завантажити деталі вправи. Спробуйте пізніше',
       position: 'topRight',
     });
+  } finally {
+    hideLoader();
   }
 }
 

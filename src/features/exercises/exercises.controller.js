@@ -4,6 +4,7 @@ import { openExerciseModal } from './exercises.modal';
 import { clearExerciseSearch, initExerciseSearch } from './exercises.search';
 import { renderPagination } from '../../render/renderPagination';
 import { exerciseCategoryMapper } from '../../domain/exercises/exercises.mapper';
+import { hideLoader, showLoader } from '../../helpers/loader';
 
 const refs = {
   exercisesContainer: document.querySelector('#exercises-list'),
@@ -91,6 +92,8 @@ async function loadExercises() {
   try {
     hideSearchError();
     clearPagination();
+    showLoader(refs.exercisesContainer);
+
     console.log('EXERCISES DEBUG:', {
       filterType: currentFilterType,
       filterParam: filterParamMap[currentFilterType],
@@ -118,6 +121,8 @@ async function loadExercises() {
   } catch (error) {
     console.error(error);
     showSearchError();
+  } finally {
+    hideLoader(refs.exercisesContainer);
   }
 }
 

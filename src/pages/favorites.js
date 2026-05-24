@@ -2,6 +2,7 @@ import { load } from '../storage/load.js';
 import { save } from '../storage/save.js';
 import { renderExercises } from '../render/renderExercises.js';
 import { openExerciseModal } from '../features/exercises/exercises.modal.js';
+import { hideLoader, showLoader } from '../helpers/loader.js';
 
 import { initQuote } from '../js/quote.js';
 
@@ -14,13 +15,21 @@ const refs = {
   favoritesList: document.querySelector('.favorites-list'),
 };
 
-function initFavorites() {
+async function initFavorites() {
   if (!refs.favoritesList) return;
 
-  // Quote
-  initQuote();
+  showLoader();
 
-  renderFavoritesList();
+  try {
+    // Quote
+    await initQuote();
+
+    renderFavoritesList();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    hideLoader();
+  }
 
   refs.favoritesList.addEventListener('click', handleRemoveFavorite);
   refs.favoritesList.addEventListener('click', handleStartButtonClick);
