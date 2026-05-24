@@ -11,6 +11,7 @@ import {
   setSearchInputVisibility,
 } from '../navigation/navigation.controller';
 import { renderPagination } from '../../render/renderPagination';
+import { hideLoader, showLoader } from '../../helpers/loader';
 
 const refs = {
   filterList: document.getElementById(
@@ -30,7 +31,7 @@ const refs = {
 let activeFilter = 'Muscles'; // Початковий дефолтний фільтр
 let currentPage = 1;
 
-export function initFilters(): void {
+export async function initFilters(): Promise<void> {
   if (!refs.filterList || !refs.categoriesList) {
     console.warn(
       'DOM-елементи для ініціалізації лісенерів фільтрів не знайдені.'
@@ -48,7 +49,7 @@ export function initFilters(): void {
   initNavigation(handleBackNavigation);
 
   // Стартовий запуск: підвантажуємо дефолтний Muscles
-  loadFilters(activeFilter);
+  await loadFilters(activeFilter);
 }
 
 async function loadFilters(type: string): Promise<void> {
@@ -63,6 +64,7 @@ async function loadFilters(type: string): Promise<void> {
     setFilterButtonsVisibility(true);
     setSearchInputVisibility(false);
     resetExerciseSearch();
+    showLoader(refs.categoriesList);
 
     // Динамічний ліміт: 9 для мобільних, 12 для інших екранів
     const limit = window.innerWidth < 768 ? 9 : 12;
@@ -83,6 +85,8 @@ async function loadFilters(type: string): Promise<void> {
   } catch (error) {
     console.error('Помилка завантаження категорій:', error);
     showError();
+  } finally {
+    hideLoader(refs.categoriesList);
   }
 }
 
