@@ -14,14 +14,14 @@ export function renderPagination(
 
   // MOBILE
   if (window.innerWidth < 768) {
-    if (currentPage > 1) {
-      pages.push(currentPage - 1);
-    }
-
-    pages.push(currentPage);
+    pages = [currentPage];
 
     if (currentPage < totalPages) {
       pages.push(currentPage + 1);
+    }
+
+    if (currentPage + 1 < totalPages) {
+      pages.push(currentPage + 2);
     }
   } else {
     // TABLET / DESKTOP
@@ -29,7 +29,7 @@ export function renderPagination(
     if (currentPage <= 3) {
       pages = [1, 2, 3];
 
-      if (totalPages > 4) {
+      if (totalPages > 3) {
         pages.push('...');
         pages.push(totalPages);
       }
@@ -49,58 +49,64 @@ export function renderPagination(
   }
 
   container.innerHTML = `
-    <!-- FIRST -->
-    <button
-      class="pagination-arrow"
-      data-page="1"
-      ${currentPage === 1 ? 'disabled' : ''}
-    >
-      &laquo;
-    </button>
+    <div class="pagination-side">
+      <!-- FIRST -->
+      <button
+        class="pagination-arrow"
+        data-page="1"
+        ${currentPage === 1 ? 'disabled' : ''}
+      >
+        &laquo;
+      </button>
 
-    <!-- PREV -->
-    <button
-      class="pagination-arrow"
-      data-page="${currentPage - 1}"
-      ${currentPage === 1 ? 'disabled' : ''}
-    >
-      &lsaquo;
-    </button>
+      <!-- PREV -->
+      <button
+        class="pagination-arrow"
+        data-page="${currentPage - 1}"
+        ${currentPage === 1 ? 'disabled' : ''}
+      >
+        &lsaquo;
+      </button>
+    </div>
 
-    ${pages
-      .map(page => {
-        if (page === '...') {
-          return `<span class="pagination-dots">...</span>`;
-        }
+    <div class="pagination-pages">
+      ${pages
+        .map(page => {
+          if (page === '...') {
+            return `<span class="pagination-dots">...</span>`;
+          }
 
-        return `
-          <button
-            class="pagination-btn ${page === currentPage ? 'active' : ''}"
-            data-page="${page}"
-          >
-            ${page}
-          </button>
-        `;
-      })
-      .join('')}
+          return `
+            <button
+              class="pagination-btn ${page === currentPage ? 'active' : ''}"
+              data-page="${page}"
+            >
+              ${page}
+            </button>
+          `;
+        })
+        .join('')}
+    </div>
 
-    <!-- NEXT -->
-    <button
-      class="pagination-arrow"
-      data-page="${currentPage + 1}"
-      ${currentPage === totalPages ? 'disabled' : ''}
-    >
-      &rsaquo;
-    </button>
+    <div class="pagination-side">
+      <!-- NEXT -->
+      <button
+        class="pagination-arrow"
+        data-page="${currentPage + 1}"
+        ${currentPage === totalPages ? 'disabled' : ''}
+      >
+        &rsaquo;
+      </button>
 
-    <!-- LAST -->
-    <button
-      class="pagination-arrow"
-      data-page="${totalPages}"
-      ${currentPage === totalPages ? 'disabled' : ''}
-    >
-      &raquo;
-    </button>
+      <!-- LAST -->
+      <button
+        class="pagination-arrow"
+        data-page="${totalPages}"
+        ${currentPage === totalPages ? 'disabled' : ''}
+      >
+        &raquo;
+      </button>
+    </div>
   `;
 
   container.querySelectorAll('button').forEach(btn => {
