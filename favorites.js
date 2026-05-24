@@ -1,4 +1,4 @@
-import{n as e,t}from"./assets/scroll.up-BiLSA_l1.js";var n=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},r=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},i=e=>e.map(e=>`
+import{i as e,n as t,r as n,t as r}from"./assets/scroll.up-CT7hqoWE.js";var i=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},a=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},o=e=>e.map(e=>`
     <li class="exercise-card" data-id="${e._id}">
       <div class="card-header">
         <div class="badge-wrapper">
@@ -32,12 +32,12 @@ import{n as e,t}from"./assets/scroll.up-BiLSA_l1.js";var n=e=>{try{let t=localSt
         <li class="card-info-item"><span class="info-label">Target:</span> ${e.target}</li>
       </ul>
     </li>
-  `).join(``),a=`favorite-exercises`,o={favoritesList:document.querySelector(`.favorites-list`)};function s(){o.favoritesList&&(t(),l(),o.favoritesList.addEventListener(`click`,u),o.favoritesList.addEventListener(`click`,c))}function c(t){let n=t.target.closest(`.start-btn`);if(!n)return;let r=n.closest(`.exercise-card`);if(!r)return;let i=r.dataset.id;i&&e(i)}function l(){let e=n(a)||[];if(e.length===0){o.favoritesList.innerHTML=`
+  `).join(``),s=`favorite-exercises`,c={favoritesList:document.querySelector(`.favorites-list`)};async function l(){if(c.favoritesList){e();try{await r(),d()}catch(e){console.error(e)}finally{n()}c.favoritesList.addEventListener(`click`,f),c.favoritesList.addEventListener(`click`,u)}}function u(e){let n=e.target.closest(`.start-btn`);if(!n)return;let r=n.closest(`.exercise-card`);if(!r)return;let i=r.dataset.id;i&&t(i)}function d(){let e=i(s)||[];if(e.length===0){c.favoritesList.innerHTML=`
       <div class="favorites-empty-state">
         <p class="favorites-empty-text">
           It appears that you haven't added any exercises to your favorites yet.
           To get started, you can add exercises that you like to your favorites for easier access in the future.
         </p>
       </div>
-    `;return}o.favoritesList.innerHTML=i(e)}function u(e){let t=e.target.closest(`.trash-btn`);if(!t)return;let i=t.closest(`.exercise-card`).dataset.id,o=n(a)||[];o=o.filter(e=>e._id!==i),r(a,o),l()}s();
+    `;return}c.favoritesList.innerHTML=o(e)}function f(e){let t=e.target.closest(`.trash-btn`);if(!t)return;let n=t.closest(`.exercise-card`).dataset.id,r=i(s)||[];r=r.filter(e=>e._id!==n),a(s,r),d()}l();
 //# sourceMappingURL=favorites.js.map
