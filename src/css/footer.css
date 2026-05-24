@@ -248,7 +248,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-start;
     gap: 78px;
   }
 
@@ -261,6 +260,7 @@
   .legal-links {
     margin-bottom: 0;
     white-space: nowrap;
+    margin-right: 78px;
   }
 
   .year-text {
