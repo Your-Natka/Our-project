@@ -17,7 +17,7 @@ const DEFAULT_FILTER_TYPE = 'Muscles';
 const DEFAULT_PAGE = 1;
 
 const SEARCH_ERROR_MESSAGE =
-  'Нічого не знайдено за вашим запитом. Спробуйте інше слово';
+  'Nothing was found for your request. Please try another word';
 
 const filterParamMap = {
   Muscles: 'target',
