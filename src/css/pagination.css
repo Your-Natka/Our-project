@@ -1,5 +1,144 @@
 .pagination-container {
-    text-align: center;
-    color: #d4d4d4;
-    margin: 32px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+/* LEFT + RIGHT BLOCKS */
+.pagination-side {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* SPACE BETWEEN BLOCKS */
+.pagination-side:first-child {
+  margin-right: 10px;
+}
+
+.pagination-side:last-child {
+  margin-left: 10px;
+}
+
+/* CENTER NUMBERS */
+.pagination-pages {
+  display: flex;
+  align-items: center;
+}
+
+/* BASE BUTTON */
+.pagination-btn,
+.pagination-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 50%;
+
+  background-color: transparent;
+
+  border: 1px solid rgba(36, 36, 36, 0.1);
+
+  color: rgba(36, 36, 36, 0.4);
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    color 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease;
+}
+
+.pagination-btn {
+  border: none;
+}
+
+/* ACTIVE PAGE */
+.pagination-btn.active {
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #242424;
+
+  color: #242424;
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* DOTS */
+.pagination-dots {
+  margin-left: 4px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+
+  color: rgba(36, 36, 36, 0.3);
+}
+
+/* ACTIVE ARROWS */
+.pagination-arrow.active-arrow {
+  border-color: #242424;
+  color: #242424;
+}
+
+/* DISABLED */
+.pagination-arrow:disabled {
+  border-color: rgba(36, 36, 36, 0.1);
+  color: rgba(36, 36, 36, 0.2);
+
+  cursor: default;
+}
+
+/* HOVER */
+.pagination-btn:hover,
+.pagination-arrow:hover {
+  border-color: rgba(36, 36, 36, 0.6);
+  color: #242424;
+}
+
+/* DISABLED */
+.pagination-btn:disabled,
+.pagination-arrow:disabled {
+  border-color: rgba(36, 36, 36, 0.1);
+  color: rgba(36, 36, 36, 0.2);
+
+  cursor: default;
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  .pagination-container {
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .pagination-btn,
+  .pagination-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+  .pagination-btn.active {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+  .pagination-side:first-child {
+    margin-right: 20px;
+  }
+  .pagination-side:last-child {
+    margin-left: 20px;
+  }
 }

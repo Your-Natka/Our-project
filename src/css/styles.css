@@ -16,6 +16,7 @@
 @import url('./vite-promo.css');
 @import url('./hero.css');
 @import url('./navigation.css');
+@import url('./scroll.up.css');
 @import url('./exercises.css');
 @import url('./quote.css');
 @import url('./pagination.css');
@@ -23,3 +24,4 @@
 @import url('./footer.css');
 @import url('./fonts.css');
 @import url('./favorites.css');
+@import url('./modal.css');

@@ -76,6 +76,7 @@
 
 .hero-tags-bottom {
   justify-content: space-between;
+  flex-wrap: nowrap;
   margin-top: 20px;
 }
 

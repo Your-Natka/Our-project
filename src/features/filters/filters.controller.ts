@@ -1,5 +1,5 @@
 import { getFilters } from './filters.api';
-import { renderCategoryCards, renderPagination } from './filters.render';
+import { renderCategoryCards } from './filters.render';
 import {
   loadExercisesByFilter,
   resetExerciseSearch,
@@ -10,12 +10,21 @@ import {
   setFilterButtonsVisibility,
   setSearchInputVisibility,
 } from '../navigation/navigation.controller';
+import { renderPagination } from '../../render/renderPagination';
 
 const refs = {
-  filterList: document.getElementById('section-filter-list') as HTMLUListElement | null,
-  categoriesList: document.getElementById('exercises-list') as HTMLUListElement | null,
-  errorBlock: document.getElementById('exercises-error') as HTMLDivElement | null,
-  pagination: document.getElementById('exercises-pagination') as HTMLDivElement | null,
+  filterList: document.getElementById(
+    'section-filter-list'
+  ) as HTMLUListElement | null,
+  categoriesList: document.getElementById(
+    'exercises-list'
+  ) as HTMLUListElement | null,
+  errorBlock: document.getElementById(
+    'exercises-error'
+  ) as HTMLDivElement | null,
+  pagination: document.getElementById(
+    'exercises-pagination'
+  ) as HTMLDivElement | null,
 };
 
 let activeFilter = 'Muscles'; // Початковий дефолтний фільтр
