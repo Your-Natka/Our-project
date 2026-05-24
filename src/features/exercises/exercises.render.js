@@ -31,14 +31,14 @@ export function renderExercises(exercises, container) {
           </div>
 
           <ul class="card-info-list">
-            <li class="card-info-item">
+            <li class="card-info-item item-calories">
               <span class="info-label">Burned calories:</span> ${ex.burnedCalories || 0} / ${ex.time || 3} min
             </li>
-            <li class="card-info-item">
-              <span class="info-label">Body part:</span> ${ex.bodyPart}
+            <li class="card-info-item item-body-part">
+              <span class="info-label">Body part:</span> <span class="capitalize-text">${ex.bodyPart}</span>
             </li>
-            <li class="card-info-item">
-              <span class="info-label">Target:</span> ${ex.target}
+            <li class="card-info-item item-target">
+              <span class="info-label">Target:</span> <span class="capitalize-text">${ex.target}</span>
             </li>
           </ul>
         </li>
