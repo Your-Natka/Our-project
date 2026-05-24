@@ -1,4 +1,4 @@
-import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,r as t,t as n}from"./assets/scroll.up-BsznRVYU.js";import{t as r}from"./assets/vendor-BQcEvRoX.js";r();async function i(e,n=1,r=12){return t(`/filters?filter=${encodeURIComponent(e)}&page=${n}&limit=${r}`)}function a(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
+import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,r as t,t as n}from"./assets/scroll.up-e7ExWEc8.js";import{t as r}from"./assets/vendor-BQcEvRoX.js";r();async function i(e,n=1,r=12){return t(`/filters?filter=${encodeURIComponent(e)}&page=${n}&limit=${r}`)}function a(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
       <li class="category-card" data-category="${e}">
         <div class="category-card-bg" style="
           background-image:
@@ -56,50 +56,56 @@ import"./assets/rolldown-runtime-BDqkOrsv.js";import{n as e,r as t,t as n}from".
             </li>
           </ul>
         </li>
-      `).join(``)}var c=document.querySelector(`#section-search-box`),l=c?.querySelector(`.search-input`);function u(e){!c||!l||typeof e!=`function`||c.addEventListener(`submit`,t=>{t.preventDefault(),e(l.value.trim())})}function d(){if(c){c.reset();return}l&&(l.value=``)}function f(e,t,n,r){if(t<=1){n.innerHTML=``;return}let i=[];window.innerWidth<768?(e>1&&i.push(e-1),i.push(e),e<t&&i.push(e+1)):e<=3?(i=[1,2,3],t>4&&(i.push(`...`),i.push(t))):i=e>=t-2?[1,`...`,t-2,t-1,t]:[1,`...`,e-1,e,e+1,`...`,t],n.innerHTML=`
-    <!-- FIRST -->
-    <button
-      class="pagination-arrow"
-      data-page="1"
-      ${e===1?`disabled`:``}
-    >
-      &laquo;
-    </button>
+      `).join(``)}var c=document.querySelector(`#section-search-box`),l=c?.querySelector(`.search-input`);function u(e){!c||!l||typeof e!=`function`||c.addEventListener(`submit`,t=>{t.preventDefault(),e(l.value.trim())})}function d(){if(c){c.reset();return}l&&(l.value=``)}function f(e,t,n,r){if(t<=1){n.innerHTML=``;return}let i=[];window.innerWidth<768?(i=[e],e<t&&i.push(e+1),e+1<t&&i.push(e+2)):e<=3?(i=[1,2,3],t>3&&(i.push(`...`),i.push(t))):i=e>=t-2?[1,`...`,t-2,t-1,t]:[1,`...`,e-1,e,e+1,`...`,t],n.innerHTML=`
+    <div class="pagination-side">
+      <!-- FIRST -->
+      <button
+        class="pagination-arrow"
+        data-page="1"
+        ${e===1?`disabled`:``}
+      >
+        &laquo;
+      </button>
 
-    <!-- PREV -->
-    <button
-      class="pagination-arrow"
-      data-page="${e-1}"
-      ${e===1?`disabled`:``}
-    >
-      &lsaquo;
-    </button>
+      <!-- PREV -->
+      <button
+        class="pagination-arrow"
+        data-page="${e-1}"
+        ${e===1?`disabled`:``}
+      >
+        &lsaquo;
+      </button>
+    </div>
 
-    ${i.map(t=>t===`...`?`<span class="pagination-dots">...</span>`:`
-          <button
-            class="pagination-btn ${t===e?`active`:``}"
-            data-page="${t}"
-          >
-            ${t}
-          </button>
-        `).join(``)}
+    <div class="pagination-pages">
+      ${i.map(t=>t===`...`?`<span class="pagination-dots">...</span>`:`
+            <button
+              class="pagination-btn ${t===e?`active`:``}"
+              data-page="${t}"
+            >
+              ${t}
+            </button>
+          `).join(``)}
+    </div>
 
-    <!-- NEXT -->
-    <button
-      class="pagination-arrow"
-      data-page="${e+1}"
-      ${e===t?`disabled`:``}
-    >
-      &rsaquo;
-    </button>
+    <div class="pagination-side">
+      <!-- NEXT -->
+      <button
+        class="pagination-arrow"
+        data-page="${e+1}"
+        ${e===t?`disabled`:``}
+      >
+        &rsaquo;
+      </button>
 
-    <!-- LAST -->
-    <button
-      class="pagination-arrow"
-      data-page="${t}"
-      ${e===t?`disabled`:``}
-    >
-      &raquo;
-    </button>
+      <!-- LAST -->
+      <button
+        class="pagination-arrow"
+        data-page="${t}"
+        ${e===t?`disabled`:``}
+      >
+        &raquo;
+      </button>
+    </div>
   `,n.querySelectorAll(`button`).forEach(t=>{t.addEventListener(`click`,()=>{let n=Number(t.dataset.page);!n||n===e||r(n)})})}var p={Muscles:{"Upper arms":`biceps`,"Lower arms":`triceps`,Abs:`abs`,Back:`lats`,Chest:`pectorals`,Legs:`quads`},"Body parts":{Back:`back`,Chest:`chest`,Waist:`waist`},Equipment:{"Body weight":`body-weight`,Dumbbell:`dumbbell`,Barbell:`barbell`}},m={exercisesContainer:document.querySelector(`#exercises-list`),errorBlock:document.querySelector(`#exercises-error`),errorText:document.querySelector(`#exercises-error .error-text`),pagination:document.querySelector(`#exercises-pagination`)},h=`Muscles`,g=1,_=10,v=`Нічого не знайдено за вашим запитом. Спробуйте інше слово`,y={Muscles:`target`,"Body parts":`bodypart`,Equipment:`equipment`},b=h,x=``,S=``,C=g;function w(){u(O),m.exercisesContainer?.addEventListener(`click`,T)}async function T(t){let n=t.target.closest(`.start-btn`);if(!n)return;let r=n.closest(`.exercise-card`)?.dataset?.id;r&&e(r)}async function E(e,t=h){b=t,x=e,S=``,C=g,d(),await k()}function D(){x=``,S=``,C=g,P(),d()}async function O(e){x&&(S=e,C=g,await k())}async function k(){if(!(!m.exercisesContainer||!m.errorBlock))try{I(),M(),console.log(`EXERCISES DEBUG:`,{filterType:b,filterParam:y[b],category:x,query:A()});let e=await o(A()),t=e.results||[];if(!t.length){F();return}N(),s(t,m.exercisesContainer),f(e.page,e.totalPages,m.pagination,j)}catch(e){console.error(e),F()}}function A(){let e=new URLSearchParams,t=y[b]||y[h],n=p?.[b]?.[x]||x.toLowerCase();return e.set(t,n),S&&e.set(`keyword`,S),e.set(`page`,C),e.set(`limit`,_),e.toString()}function j(e){C=e,k()}function M(){m.pagination&&(m.pagination.innerHTML=``)}function N(){m.exercisesContainer.classList.add(`is-exercises-view`)}function P(){m.exercisesContainer?.classList.remove(`is-exercises-view`)}function F(){N(),m.exercisesContainer.innerHTML=``,m.errorText&&(m.errorText.textContent=v),m.errorBlock.classList.remove(`is-hidden`),M()}function I(){m.errorBlock.classList.add(`is-hidden`)}var L={title:document.getElementById(`section-title`),subtitle:document.getElementById(`section-subtitle`),filterList:document.getElementById(`section-filter-list`),searchBox:document.getElementById(`section-search-box`)};function R(e){L.title&&L.title.addEventListener(`click`,()=>{L.subtitle&&L.subtitle.textContent&&e()})}function z(e,t){L.title&&(L.subtitle&&=(L.title.innerHTML=`${e}<span class="section-subtitle" id="section-subtitle">${t?` / `+t:``}</span>`,document.getElementById(`section-subtitle`)))}function B(e){L.filterList&&(e?L.filterList.classList.remove(`is-hidden`):L.filterList.classList.add(`is-hidden`))}function V(e){L.searchBox&&(e?L.searchBox.classList.remove(`is-hidden`):L.searchBox.classList.add(`is-hidden`))}var H={filterList:document.getElementById(`section-filter-list`),categoriesList:document.getElementById(`exercises-list`),errorBlock:document.getElementById(`exercises-error`),pagination:document.getElementById(`exercises-pagination`)},U=`Muscles`,W=1;function G(){if(!H.filterList||!H.categoriesList){console.warn(`DOM-елементи для ініціалізації лісенерів фільтрів не знайдені.`);return}H.filterList.addEventListener(`click`,q),H.categoriesList.addEventListener(`click`,J),R(Y),K(U)}async function K(e){if(!(!H.categoriesList||!H.errorBlock))try{H.errorBlock.classList.add(`is-hidden`),H.categoriesList.classList.remove(`is-hidden`),z(`Exercises`),B(!0),V(!1),D();let t=window.innerWidth<768?9:12,n=await i(e,W,t);if(n.results.length===0){X();return}a(n.results,H.categoriesList),H.pagination&&f(n.totalPages,W,H.pagination)}catch(e){console.error(`Помилка завантаження категорій:`,e),X()}}async function q(e){let t=e.target;if(t.nodeName!==`BUTTON`||!H.filterList)return;let n=t;U=n.dataset.filter||`Muscles`,W=1;let r=H.filterList.querySelector(`.filter-btn.active`);r&&(r.classList.remove(`active`),r.setAttribute(`aria-selected`,`false`)),n.classList.add(`active`),n.setAttribute(`aria-selected`,`true`),z(`Exercises`),await K(U)}function J(e){let t=e.target.closest(`.category-card`);if(!t||!H.categoriesList)return;let n=t.dataset.category||``;z(`Exercises`,n.charAt(0).toUpperCase()+n.slice(1)),B(!0),V(!0),H.categoriesList.innerHTML=``,E(n,U)}function Y(){z(`Exercises`),B(!0),V(!1),D(),W=1,K(U)}function X(){H.categoriesList&&H.errorBlock&&(H.categoriesList.innerHTML=``,H.errorBlock.classList.remove(`is-hidden`))}async function Z(){try{n(),G(),w()}catch(e){console.error(e)}}Z();function Q(){let e=document.getElementById(`footer-subscribe-form`);e&&e.addEventListener(`submit`,async t=>{t.preventDefault();let n=e.elements.namedItem(`email`);if(!n)return;let r=n.value.trim();try{let t=await fetch(`https://your-energy.b.goit.study/api/subscription`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({email:r})});if(t.status===201){alert(`We're excited to have you on board! 🎉`),e.reset();return}if(t.status===409){alert(`This email is already subscribed to the newsletter!`);return}if(t.status===400||t.status===404){alert(`Bad request. Please check your email formatting.`);return}throw Error(`Unexpected status code`)}catch(e){alert(`A server error occurred. Please try again later.`),console.error(`Subscription system error:`,e)}})}Q();
 //# sourceMappingURL=index.js.map
