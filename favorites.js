@@ -1,4 +1,4 @@
-import{i as e,n as t,r as n,t as r}from"./assets/scroll.up-CVd0zS9N.js";var i=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},a=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},o=e=>e.map(e=>`
+import{a as e,i as t,n,r,t as i}from"./assets/scroll.up-Cbcwf3w1.js";var a=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},o=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},s=e=>e.map(e=>`
     <li class="exercise-card" data-id="${e._id}">
       <div class="card-header">
         <div class="badge-wrapper">
@@ -32,12 +32,12 @@ import{i as e,n as t,r as n,t as r}from"./assets/scroll.up-CVd0zS9N.js";var i=e=
         <li class="card-info-item"><span class="info-label">Target:</span> ${e.target}</li>
       </ul>
     </li>
-  `).join(``),s=`favorite-exercises`,c={favoritesList:document.querySelector(`.favorites-list`)};async function l(){if(c.favoritesList){e();try{await r(),d()}catch(e){console.error(e)}finally{n()}c.favoritesList.addEventListener(`click`,f),c.favoritesList.addEventListener(`click`,u)}}function u(e){let n=e.target.closest(`.start-btn`);if(!n)return;let r=n.closest(`.exercise-card`);if(!r)return;let i=r.dataset.id;i&&t(i)}function d(){let e=i(s)||[];if(e.length===0){c.favoritesList.innerHTML=`
+  `).join(``),c=`favorite-exercises`,l={favoritesList:document.querySelector(`.favorites-list`),paginationContainer:document.querySelector(`.favorites-pagination`)};async function u(){if(l.favoritesList){e();try{await i(),f()}catch(e){console.error(e)}finally{t()}l.favoritesList.addEventListener(`click`,p),l.favoritesList.addEventListener(`click`,d)}}function d(e){let t=e.target.closest(`.start-btn`);if(!t)return;let n=t.closest(`.exercise-card`);if(!n)return;let i=n.dataset.id;i&&r(i)}function f(e=1){let t=a(c)||[];if(t.length===0){l.favoritesList.innerHTML=`
       <div class="favorites-empty-state">
         <p class="favorites-empty-text">
           It appears that you haven't added any exercises to your favorites yet.
           To get started, you can add exercises that you like to your favorites for easier access in the future.
         </p>
       </div>
-    `;return}c.favoritesList.innerHTML=o(e)}function f(e){let t=e.target.closest(`.trash-btn`);if(!t)return;let n=t.closest(`.exercise-card`).dataset.id,r=i(s)||[];r=r.filter(e=>e._id!==n),a(s,r),d()}l();
+    `,l.paginationContainer&&(l.paginationContainer.innerHTML=``);return}let r=100;window.innerWidth<768?r=8:window.innerWidth<1440&&(r=10);let i=Math.ceil(t.length/r);if(e>i){f(i);return}let o=(e-1)*r,u=t.slice(o,o+r);l.favoritesList.innerHTML=s(u),l.paginationContainer&&(i>1&&window.innerWidth<1440?n(e,i,l.paginationContainer,e=>{f(e);let t=l.favoritesList.getBoundingClientRect().top+window.scrollY;window.scrollTo({top:t-100,behavior:`smooth`})}):l.paginationContainer.innerHTML=``)}function p(e){let t=e.target.closest(`.trash-btn`);if(!t)return;let n=t.closest(`.exercise-card`).dataset.id,r=a(c)||[];r=r.filter(e=>e._id!==n),o(c,r);let i=document.querySelector(`.pagination-btn.active`);f(i?Number(i.dataset.page):1)}u();
 //# sourceMappingURL=favorites.js.map
