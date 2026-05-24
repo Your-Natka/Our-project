@@ -262,6 +262,11 @@
     margin-bottom: 0;
     white-space: nowrap;
   }
+
+  .year-text {
+    margin-left: auto;
+    margin-right: 0;
+  }
 }
 
 /* DESKTOP RESPONSIVE SYSTEM (1440px+ Viewports) */
@@ -303,5 +308,6 @@
 
   .year-text {
     margin-left: auto;
+    margin-right: 305px;
   }
 }
