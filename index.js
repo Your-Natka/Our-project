@@ -1,4 +1,4 @@
-import"./assets/rolldown-runtime-BDqkOrsv.js";import{a as e,i as t,n,r,t as i}from"./assets/scroll.up-CT7hqoWE.js";import{t as a}from"./assets/vendor-BQcEvRoX.js";a();async function o(t,n=1,r=12){return e(`/filters?filter=${encodeURIComponent(t)}&page=${n}&limit=${r}`)}function s(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
+import"./assets/rolldown-runtime-BDqkOrsv.js";import{a as e,i as t,n,r,t as i}from"./assets/scroll.up-BTJeEX0a.js";import{t as a}from"./assets/vendor-BQcEvRoX.js";a();async function o(t,n=1,r=12){return e(`/filters?filter=${encodeURIComponent(t)}&page=${n}&limit=${r}`)}function s(e,t){t.innerHTML=e.map(({name:e,filter:t,imgURL:n})=>`
       <li class="category-card" data-category="${e}">
         <div class="category-card-bg" style="
           background-image:
@@ -45,14 +45,14 @@ import"./assets/rolldown-runtime-BDqkOrsv.js";import{a as e,i as t,n,r,t as i}fr
           </div>
 
           <ul class="card-info-list">
-            <li class="card-info-item">
+            <li class="card-info-item item-calories">
               <span class="info-label">Burned calories:</span> ${e.burnedCalories||0} / ${e.time||3} min
             </li>
-            <li class="card-info-item">
-              <span class="info-label">Body part:</span> ${e.bodyPart}
+            <li class="card-info-item item-body-part">
+              <span class="info-label">Body part:</span> <span class="capitalize-text">${e.bodyPart}</span>
             </li>
-            <li class="card-info-item">
-              <span class="info-label">Target:</span> ${e.target}
+            <li class="card-info-item item-target">
+              <span class="info-label">Target:</span> <span class="capitalize-text">${e.target}</span>
             </li>
           </ul>
         </li>
