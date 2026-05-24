@@ -15,7 +15,6 @@ const refs = {
 
 const DEFAULT_FILTER_TYPE = 'Muscles';
 const DEFAULT_PAGE = 1;
-const EXERCISES_LIMIT = 10;
 
 const SEARCH_ERROR_MESSAGE =
   'Нічого не знайдено за вашим запитом. Спробуйте інше слово';
@@ -144,7 +143,8 @@ function buildExercisesQuery() {
   }
 
   params.set('page', currentPage);
-  params.set('limit', EXERCISES_LIMIT);
+  const limit = window.innerWidth < 768 ? 8 : 10;
+  params.set('limit', limit);
 
   return params.toString();
 }
