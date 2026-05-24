@@ -175,4 +175,4 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
       <use href="./sprite.svg#icon-arrow-up" />
     </svg>
   `,document.body.appendChild(e),e.addEventListener(`click`,()=>{window.scrollTo({top:0,behavior:`smooth`})}),window.addEventListener(`scroll`,S(()=>{window.scrollY>400?e.classList.add(`is-visible`):e.classList.remove(`is-visible`)},100))}C();export{l as n,r,x as t};
-//# sourceMappingURL=scroll.up-DL1Sa6eC.js.map
+//# sourceMappingURL=scroll.up-BsznRVYU.js.map

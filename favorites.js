@@ -1,4 +1,4 @@
-import{n as e,t}from"./assets/scroll.up-DL1Sa6eC.js";var n=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},r=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},i=e=>e.map(e=>`
+import{n as e,t}from"./assets/scroll.up-BsznRVYU.js";var n=e=>{try{let t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(e){console.error(`Error reading from localStorage:`,e.message);return}},r=(e,t)=>{try{let n=JSON.stringify(t);localStorage.setItem(e,n)}catch(e){console.error(`Error saving to localStorage:`,e.message)}},i=e=>e.map(e=>`
     <li class="exercise-card" data-id="${e._id}">
       <div class="card-header">
         <div class="badge-wrapper">
