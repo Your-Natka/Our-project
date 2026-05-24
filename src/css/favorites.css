@@ -97,7 +97,6 @@
 
   .favorites-title {
     margin-top: 66px;
-    margin-bottom: 32px;
   }
 
   .favorites-left-panel {
@@ -106,6 +105,7 @@
   }
 
   .favorites-right-panel {
+    margin-top: 0;
     width: 100%;
   }
 
