@@ -80,7 +80,7 @@ async function loadFilters(type: string): Promise<void> {
 
     // TODO: Відмальовуємо пагінацію
     if (refs.pagination) {
-      renderPagination(data.totalPages, currentPage, refs.pagination);
+      renderPagination(currentPage, data.totalPages, refs.pagination, handlePageChange);
     }
   } catch (error) {
     console.error('Помилка завантаження категорій:', error);
@@ -88,6 +88,12 @@ async function loadFilters(type: string): Promise<void> {
   } finally {
     hideLoader(refs.categoriesList);
   }
+}
+
+// Обробник кліку по сторінці пагінації
+function handlePageChange(newPage: number): void {
+  currentPage = newPage;
+  loadFilters(activeFilter);
 }
 
 // Перемикання верхніх фільтрів
