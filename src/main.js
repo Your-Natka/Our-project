@@ -4,4 +4,6 @@ import { initFooter } from './js/footer.js';
 import './js/header.js';
 import './features/navigation/scroll.up';
 
+import './modal/rating-modal.js';
+
 initFooter();
