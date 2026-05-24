@@ -1,0 +1,141 @@
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rating-backdrop {
+  position: fixed;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+
+  transition: opacity 250ms ease;
+}
+
+.rating-modal {
+  padding: 40px 20px 20px 20px;
+  max-height: 95vh;
+  position: relative;
+  margin: 0 20px;
+  border-radius: 20px;
+  background-color: #242424;
+}
+
+.rating-close-btn {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  background: transparent;
+  border: none;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.rating-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 6px;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.rating-value {
+  font-size: 16px;
+  color: #ffffff;
+  min-width: 32px;
+}
+
+/* stars layout */
+.rating-stars {
+  display: flex;
+  gap: 6px;
+}
+
+.star-label {
+  cursor: pointer;
+}
+
+.star-label input {
+  display: none;
+}
+
+/* default (gray like in mockup) */
+.star-icon {
+  fill: #2f2f2f;
+  transition: 0.2s ease;
+}
+
+/* active (yellow) */
+.star-icon.active {
+  fill: #eea10c;
+}
+
+.rating-input,
+.rating-textarea {
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 12px;
+  border: 1px solid #444;
+  /* border: 1px solid #f4f4f4; */
+
+  background-color: transparent;
+
+  color: white;
+}
+
+.rating-input {
+  margin-bottom: 16px;
+}
+
+.rating-textarea {
+  height: 120px;
+
+  resize: none;
+
+  margin-bottom: 20px;
+}
+
+.rating-submit-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 30px;
+
+  cursor: pointer;
+
+  background-color: white;
+  color: black;
+
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-modal {
+    width: 430px;
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

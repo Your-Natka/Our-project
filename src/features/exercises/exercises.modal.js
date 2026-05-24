@@ -3,6 +3,7 @@ import { createModalMarkup } from '../../render/renderModal';
 import { hideLoader, showLoader } from '../../helpers/loader';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import { openRatingModal } from '../../modal/rating-modal';
 
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const modalContainer = document.querySelector('#modal-container');
@@ -24,6 +25,21 @@ export async function openExerciseModal(exerciseId) {
 
     modalContainer.innerHTML = markup;
 
+    // Додаємо слухач для кнопки "Give a rating"
+    const ratingBtn =
+      modalContainer.querySelector(
+        '[data-rating-open]'
+    );
+
+    ratingBtn.addEventListener(
+      'click',
+      () => {
+        closeExerciseModal();
+
+        openRatingModal(exerciseId);
+      }
+    );
+
     renderRatingStars(exerciseData.rating);
 
     modalBackdrop.classList.add('is-open');
@@ -44,7 +60,7 @@ export async function openExerciseModal(exerciseId) {
   }
 }
 
-function closeExerciseModal() {
+export function closeExerciseModal() {
   modalBackdrop.classList.remove('is-open');
   document.body.classList.remove('no-scroll');
 
