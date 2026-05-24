@@ -1,9 +1,10 @@
 /**
  * Генерує HTML-розмітку для модального вікна вправи
  * @param {Object} exercise - Об'єкт з даними вправи
+ * @param {boolean} isFavorite - Чи додана вправа в обране
  * @returns {string} HTML рядок
  */
-export function createModalMarkup(exercise) {
+export function createModalMarkup(exercise, isFavorite) {
   const {
     _id,
     bodyPart,
@@ -22,6 +23,12 @@ export function createModalMarkup(exercise) {
   const image = gifUrl
     ? gifUrl
     : 'https://via.placeholder.com/360x300?text=No+Image';
+
+  const favoritesBtnText = isFavorite
+    ? 'Remove from favorites'
+    : 'Add to favorites';
+  const favoritesBtnIcon = isFavorite ? 'icon-trash' : 'icon-heart';
+  const favoritesBtnClass = isFavorite ? 'remove-from-fav' : 'add-to-fav';
 
   return `
     <div class="modal-content" data-id="${_id}">
@@ -68,16 +75,18 @@ export function createModalMarkup(exercise) {
           </ul>
 
           <p class="modal-exercise-description">${description}</p>
-
         </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="modal-action-btn" type="button" data-favorites-toggle>
+          <span>${favoritesBtnText}</span>
+          <svg class="modal-action-icon" width="18" height="18">
+            <use href="./sprite.svg#${favoritesBtnIcon}"></use>
+          </svg>
+        </button>
+        <button class="modal-action-btn modal-give-rating-btn" type="button">Give a rating</button>
       </div>
     </div>
   `;
 }
-
-// <div class="modal-buttons">
-//    <div id="favorites-btn-container">
-//      <!-- Кнопка Favorites буде додана в наступній тасці -->
-//    </div>
-//    <button class="modal-give-rating-btn" type="button">Give a rating</button>
-// </div>
