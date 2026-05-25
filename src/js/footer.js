@@ -1,4 +1,5 @@
 import { hideLoader, showLoader } from '../helpers/loader.js';
+import iziToast from 'izitoast';
 
 export function initFooter() {
   const form = document.getElementById('footer-subscribe-form');
@@ -25,20 +26,33 @@ export function initFooter() {
 
       // Success
       if (response.status === 201) {
-        alert("We're excited to have you on board! 🎉");
+        iziToast.success({
+        title: 'Success',
+        message: "We're excited to have you on board! 🎉",
+        position: 'topRight',
+      });
         form.reset();
         return;
       }
 
       // Conflict: Already subscribed
       if (response.status === 409) {
-        alert('This email is already subscribed to the newsletter!');
+        iziToast.error({
+        title: 'Error',
+        message: 'This email is already subscribed to the newsletter!',
+        position: 'topRight',
+      });
+        form.reset();
         return;
       }
 
       // Bad Request / Not Found
       if (response.status === 400 || response.status === 404) {
-        alert('Bad request. Please check your email formatting.');
+        iziToast.error({
+          title: 'Error',
+          message: 'Bad request. Please check your email formatting.',
+          position: 'topRight',
+        });
         return;
       }
 
@@ -46,7 +60,11 @@ export function initFooter() {
       throw new Error('Unexpected status code');
     } catch (error) {
       // Network failures or thrown errors
-      alert('A server error occurred. Please try again later.');
+      iziToast.error({
+        title: 'Error',
+        message: 'A server error occurred. Please try again later.',
+        position: 'topRight',
+      });
       console.error('Subscription system error:', error);
     } finally {
       hideLoader();
