@@ -244,4 +244,4 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
       <use href="./sprite.svg#icon-arrow-up" />
     </svg>
   `,document.body.appendChild(e),e.addEventListener(`click`,()=>{window.scrollTo({top:0,behavior:`smooth`})}),window.addEventListener(`scroll`,K(()=>{window.scrollY>400?e.classList.add(`is-visible`):e.classList.remove(`is-visible`)},100))}q();export{d as a,f as i,L as n,i as o,D as r,G as t};
-//# sourceMappingURL=scroll.up-aUT6bExW.js.map
+//# sourceMappingURL=scroll.up-C9MGO-Cd.js.map
