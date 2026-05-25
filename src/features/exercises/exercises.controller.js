@@ -93,13 +93,6 @@ async function loadExercises() {
     clearPagination();
     showLoader(refs.exercisesContainer);
 
-    console.log('EXERCISES DEBUG:', {
-      filterType: currentFilterType,
-      filterParam: filterParamMap[currentFilterType],
-      category: currentCategoryName,
-      query: buildExercisesQuery(),
-    });
-
     const data = await getExercises(buildExercisesQuery());
     const exercises = data.results || [];
 

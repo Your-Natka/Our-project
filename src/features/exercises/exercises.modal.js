@@ -189,12 +189,11 @@ document.addEventListener('click', event => {
 
   if (!ratingBtn) return;
 
-  const exerciseId =
-    ratingBtn.dataset.exerciseId;
+  const exerciseid = ratingBtn.dataset.exerciseid;
 
   closeExerciseModal();
 
   setTimeout(() => {
-    openRatingModal(exerciseId);
+    openRatingModal(exerciseid);
   }, 0);
 });
