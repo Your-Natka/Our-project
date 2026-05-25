@@ -85,7 +85,7 @@ export function createModalMarkup(exercise, isFavorite) {
             <use href="./sprite.svg#${favoritesBtnIcon}"></use>
           </svg>
         </button>
-        <button class="modal-action-btn modal-give-rating-btn" type="button" data-rating-open>Give a rating</button>
+        <button class="modal-action-btn modal-give-rating-btn" type="button" data-rating-open data-exercise-id="${_id}">Give a rating</button>
       </div>
     </div>
   `;

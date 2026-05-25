@@ -26,19 +26,19 @@ export async function openExerciseModal(exerciseId) {
     modalContainer.innerHTML = markup;
 
     // Додаємо слухач для кнопки "Give a rating"
-    const ratingBtn =
-      modalContainer.querySelector(
-        '[data-rating-open]'
-    );
+    // const ratingBtn =
+    //   modalContainer.querySelector(
+    //     '[data-rating-open]'
+    // );
 
-    ratingBtn.addEventListener(
-      'click',
-      () => {
-        closeExerciseModal();
+    // ratingBtn.addEventListener(
+    //   'click',
+    //   () => {
+    //     closeExerciseModal();
 
-        openRatingModal(exerciseId);
-      }
-    );
+    //     openRatingModal(exerciseId);
+    //   }
+    // );
 
     renderRatingStars(exerciseData.rating);
 
@@ -181,3 +181,20 @@ function onEscKeyPress(event) {
     closeExerciseModal();
   }
 }
+
+document.addEventListener('click', event => {
+  const ratingBtn = event.target.closest(
+    '[data-rating-open]'
+  );
+
+  if (!ratingBtn) return;
+
+  const exerciseId =
+    ratingBtn.dataset.exerciseId;
+
+  closeExerciseModal();
+
+  setTimeout(() => {
+    openRatingModal(exerciseId);
+  }, 0);
+});
