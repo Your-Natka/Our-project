@@ -75,18 +75,18 @@ export function createModalMarkup(exercise, isFavorite) {
           </ul>
 
           <p class="modal-exercise-description">${description}</p>
+        </div>
+      </div>
 
-          <div class="modal-buttons">
-            <button class="modal-action-btn" type="button" data-favorites-toggle>
-              <span>${favoritesBtnText}</span>
-              <svg class="modal-action-icon" width="18" height="18">
-                <use href="./sprite.svg#${favoritesBtnIcon}"></use>
-              </svg>
-            </button>
-            <button class="modal-action-btn modal-give-rating-btn" type="button">Give a rating</button>
-          </div>
-        </div> </div>
-
+      <div class="modal-buttons">
+        <button class="modal-action-btn" type="button" data-favorites-toggle>
+          <span>${favoritesBtnText}</span>
+          <svg class="modal-action-icon" width="18" height="18">
+            <use href="./sprite.svg#${favoritesBtnIcon}"></use>
+          </svg>
+        </button>
+        <button class="modal-action-btn modal-give-rating-btn" type="button">Give a rating</button>
+      </div>
     </div>
   `;
 }
