@@ -86,6 +86,7 @@ export function createModalMarkup(exercise, isFavorite) {
             <button class="modal-action-btn modal-give-rating-btn" type="button">Give a rating</button>
           </div>
         </div> </div>
+
     </div>
   `;
 }
