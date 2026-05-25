@@ -1,10 +1,74 @@
+class PaginationButtonBuilder {
+  constructor() {
+    this.classes = ['pagination-btn'];
+    this.attrs = {};
+    this.content = '';
+    this.isArrow = false;
+  }
+
+  setPage(page) {
+    this.attrs['data-page'] = page;
+    return this;
+  }
+
+  setContent(content) {
+    this.content = content;
+    return this;
+  }
+
+  setIsArrow() {
+    this.isArrow = true;
+    this.classes = ['pagination-arrow'];
+    return this;
+  }
+
+  setActive(isActive) {
+    if (isActive) {
+      this.classes.push('active');
+    }
+    return this;
+  }
+
+  setDisabled(isDisabled) {
+    if (isDisabled) {
+      this.attrs['disabled'] = '';
+    }
+    return this;
+  }
+
+  setDots() {
+    this.classes.push('pagination-dots');
+    this.setDisabled(true);
+    return this;
+  }
+
+  build() {
+    // For buttons with more than one digit, add classes for better text fit
+    if (!this.isArrow && typeof this.content === 'number') {
+      const digitCount = String(this.content).length;
+      if (digitCount === 2) {
+        this.classes.push('digit-2');
+      } else if (digitCount >= 3) {
+        this.classes.push('digit-3');
+      }
+    }
+
+    const classStr = this.classes.join(' ');
+    const attrStr = Object.entries(this.attrs)
+      .map(([key, val]) => (val === '' ? key : `${key}="${val}"`))
+      .join(' ');
+
+    return `<button class="${classStr}" ${attrStr}>${this.content}</button>`;
+  }
+}
+
 export function renderPagination(
   currentPage,
   totalPages,
   container,
   onPageChange
 ) {
-  // Ховаємо пагінацію якщо сторінка одна
+  // Hide pagination if there is only one page
   if (totalPages <= 1) {
     container.innerHTML = '';
     return;
@@ -27,7 +91,7 @@ export function renderPagination(
     // TABLET / DESKTOP
 
     if (currentPage <= 3) {
-      pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      pages = Array.from({ length: Math.min(totalPages, 3) }, (_, i) => i + 1);
 
       if (totalPages > 3) {
         pages.push('...');
@@ -48,64 +112,70 @@ export function renderPagination(
     }
   }
 
+  const firstBtn = new PaginationButtonBuilder()
+    .setIsArrow()
+    .setPage(1)
+    .setContent('&laquo;')
+    .setDisabled(currentPage === 1)
+    .build();
+
+  const prevBtn = new PaginationButtonBuilder()
+    .setIsArrow()
+    .setPage(currentPage - 1)
+    .setContent('&lsaquo;')
+    .setDisabled(currentPage === 1)
+    .build();
+
+  const nextBtn = new PaginationButtonBuilder()
+    .setIsArrow()
+    .setPage(currentPage + 1)
+    .setContent('&rsaquo;')
+    .setDisabled(currentPage === totalPages)
+    .build();
+
+  const lastBtn = new PaginationButtonBuilder()
+    .setIsArrow()
+    .setPage(totalPages)
+    .setContent('&raquo;')
+    .setDisabled(currentPage === totalPages)
+    .build();
+
+  const pagesHtml = pages
+    .map(page => {
+      if (page === '...') {
+        return new PaginationButtonBuilder()
+          .setDots()
+          .setContent('...')
+          .build();
+      }
+
+      return new PaginationButtonBuilder()
+        .setPage(page)
+        .setContent(page)
+        .setActive(page === currentPage)
+        .build();
+    })
+    .join('');
+
   container.innerHTML = `
     <div class="pagination-side">
       <!-- FIRST -->
-      <button
-        class="pagination-arrow"
-        data-page="1"
-        ${currentPage === 1 ? 'disabled' : ''}
-      >
-        &laquo;
-      </button>
+      ${firstBtn}
 
       <!-- PREV -->
-      <button
-        class="pagination-arrow"
-        data-page="${currentPage - 1}"
-        ${currentPage === 1 ? 'disabled' : ''}
-      >
-        &lsaquo;
-      </button>
+      ${prevBtn}
     </div>
 
     <div class="pagination-pages">
-      ${pages
-        .map(page => {
-          if (page === '...') {
-            return `<span class="pagination-dots">...</span>`;
-          }
-
-          return `
-            <button
-              class="pagination-btn ${page === currentPage ? 'active' : ''}"
-              data-page="${page}"
-            >
-              ${page}
-            </button>
-          `;
-        })
-        .join('')}
+      ${pagesHtml}
     </div>
 
     <div class="pagination-side">
       <!-- NEXT -->
-      <button
-        class="pagination-arrow"
-        data-page="${currentPage + 1}"
-        ${currentPage === totalPages ? 'disabled' : ''}
-      >
-        &rsaquo;
-      </button>
+      ${nextBtn}
 
       <!-- LAST -->
-      <button
-        class="pagination-arrow"
-        data-page="${totalPages}"
-        ${currentPage === totalPages ? 'disabled' : ''}
-      >
-        &raquo;
-      </button>
+      ${lastBtn}
     </div>
   `;
 
