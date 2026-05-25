@@ -5,7 +5,7 @@
   font-weight: 400;
   letter-spacing: -0.02em;
   color: #242424;
-  margin: 0;
+  margin: 0 0 32px;
   text-transform: capitalize;
   line-height: 1.09;
   margin-top: 80px;
@@ -42,7 +42,7 @@
   font-size: 15px;
   line-height: 1.125;
   text-align: center;
-  color: rgba(36, 36, 36, 0.4);
+  color: #242424;
 }
 
 /* TABLET LAYOUT 768px+ */
@@ -120,7 +120,6 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 32px;
     column-gap: 16px;
-    margin: 20px 0 0 0;
     padding: 0;
     padding-right: 16px;
     max-height: 487px;
@@ -150,7 +149,7 @@
   .favorites-empty-state {
     grid-column: 1 / -1;
     max-width: 554px;
-    margin: 144px auto 0 auto;
+    margin: 114px auto 0 auto;
     text-align: center;
   }
 }

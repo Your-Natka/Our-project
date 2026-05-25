@@ -59,7 +59,7 @@
 }
 
 .quote-text {
-  margin-top: 16px;
+  margin-top: 8px;
   line-height: 1.3;
   font-size: 14px;
   color: rgba(244, 244, 244, 0.6);
@@ -154,12 +154,6 @@
 }
 
 /* QUOTE-FAVORITES */
-
-.quote-fav .quote {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .quote-fav .quote-card {
   order: 1;
 }
@@ -227,6 +221,10 @@
     width: 400px;
     padding: 40px;
   }
+
+.quote-text {
+  margin-top: 6px;
+}
 
   .daily-norm {
     height: auto;
