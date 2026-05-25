@@ -43,18 +43,18 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
           </ul>
 
           <p class="modal-exercise-description">${c}</p>
+        </div>
+      </div>
 
-          <div class="modal-buttons">
-            <button class="modal-action-btn" type="button" data-favorites-toggle>
-              <span>${m}</span>
-              <svg class="modal-action-icon" width="18" height="18">
-                <use href="./sprite.svg#${h}"></use>
-              </svg>
-            </button>
-            <button class="modal-action-btn modal-give-rating-btn" type="button">Give a rating</button>
-          </div>
-        </div> </div>
-
+      <div class="modal-buttons">
+        <button class="modal-action-btn" type="button" data-favorites-toggle>
+          <span>${m}</span>
+          <svg class="modal-action-icon" width="18" height="18">
+            <use href="./sprite.svg#${h}"></use>
+          </svg>
+        </button>
+        <button class="modal-action-btn modal-give-rating-btn" type="button">Give a rating</button>
+      </div>
     </div>
   `}var s=`loader-backdrop`,c=`loader-local`,l=new WeakMap,u=0;function d(e){if(e instanceof Element){h(e);return}p()}function f(e){if(e instanceof Element){g(e);return}m()}function p(){if(u+=1,!document.querySelector(`.${s}`)){let e=document.createElement(`div`);e.className=s,e.setAttribute(`role`,`status`),e.setAttribute(`aria-live`,`polite`),e.innerHTML=_(),document.body.append(e)}document.body.classList.add(`loader-lock`)}function m(){u>0&&--u,!(u>0)&&(document.querySelector(`.${s}`)?.remove(),document.body.classList.remove(`loader-lock`))}function h(e){let t=l.get(e)||0;if(l.set(e,t+1),t>0)return;let n=v(e)?`li`:`div`;e.setAttribute(`aria-busy`,`true`),e.innerHTML=`
     <${n} class="${c}" role="status" aria-live="polite">
@@ -213,4 +213,4 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
       <use href="./sprite.svg#icon-arrow-up" />
     </svg>
   `,document.body.appendChild(e),e.addEventListener(`click`,()=>{window.scrollTo({top:0,behavior:`smooth`})}),window.addEventListener(`scroll`,q(()=>{window.scrollY>400?e.classList.add(`is-visible`):e.classList.remove(`is-visible`)},100))}J();export{d as a,f as i,R as n,i as o,D as r,K as t};
-//# sourceMappingURL=scroll.up-ptyPprhL.js.map
+//# sourceMappingURL=scroll.up-DfE5uHQS.js.map
