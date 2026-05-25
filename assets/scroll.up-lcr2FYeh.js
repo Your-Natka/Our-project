@@ -60,7 +60,7 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
     <${n} class="${c}" role="status" aria-live="polite">
       ${_()}
     </${n}>
-  `}function g(e){let t=l.get(e)||0,n=Math.max(t-1,0);if(n>0){l.set(e,n);return}l.delete(e),e.removeAttribute(`aria-busy`),(e.children.length===1&&e.firstElementChild)?.classList.contains(c)&&(e.innerHTML=``)}function _(){return`
+  `}function g(e){let t=l.get(e)||0,n=Math.max(t-1,0);if(n>0){l.set(e,n);return}l.delete(e),e.removeAttribute(`aria-busy`);let r=e.children.length===1&&e.firstElementChild;r&&r.classList.contains(c)&&(e.innerHTML=``)}function _(){return`
     <div class="loader-box">
       <span class="loader-spinner" aria-hidden="true"></span>
       <span class="loader-text">Loading...</span>
@@ -244,4 +244,4 @@ import{n as e}from"./rolldown-runtime-BDqkOrsv.js";import{t}from"./vendor-BQcEvR
       <use href="./sprite.svg#icon-arrow-up" />
     </svg>
   `,document.body.appendChild(e),e.addEventListener(`click`,()=>{window.scrollTo({top:0,behavior:`smooth`})}),window.addEventListener(`scroll`,K(()=>{window.scrollY>400?e.classList.add(`is-visible`):e.classList.remove(`is-visible`)},100))}q();export{d as a,f as i,L as n,i as o,D as r,G as t};
-//# sourceMappingURL=scroll.up-BU_O6EkC.js.map
+//# sourceMappingURL=scroll.up-lcr2FYeh.js.map
