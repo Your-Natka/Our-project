@@ -27,7 +27,7 @@ export function renderPagination(
     // TABLET / DESKTOP
 
     if (currentPage <= 3) {
-      pages = [1, 2, 3];
+      pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
       if (totalPages > 3) {
         pages.push('...');
