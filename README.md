@@ -144,16 +144,16 @@ https://your-energy.b.goit.study/api
 
 <div align="center">
 
-| Учасник               | GitHub                                       |
-| --------------------- | -------------------------------------------- |
-| Natalia Bodnarchuk    | [@Your-Natka](https://github.com/Your-Natka) |
-| Oksana Miazina        | [@PoppyHanna](https://github.com/PoppyHanna) |
-| Maks Lukyanenko       | [@MaksL777](https://github.com/MaksL777)     |
-| Mykola Masiuk         | [@mykolamasiuk](https://github.com/)         |
-| Volodymyr Burtsev     | [@voksus](https://github.com/voksus)         |
-| Yakiv Tsypin (Zexler) | [@Zexler](https://github.com/Zexler)         |
-| Hanna Fedko           | [@PoppyHanna](https://github.com/PoppyHanna) |
-| Oleksandr Tovkailo    | [@Tovchik](https://github.com/Tov4ik)        |
+| Учасник               | GitHub                                        |
+| --------------------- | --------------------------------------------- |
+| Natalia Bodnarchuk    | [@Your-Natka](https://github.com/Your-Natka)  |
+| Oksana Miazina        | [@omiazina-mk](https://github.com/omiazina-mk)|
+| Maks Lukyanenko       | [@MaksL777](https://github.com/MaksL777)      |
+| Mykola Masiuk         | [@mykolamasiuk](https://github.com/)          |
+| Volodymyr Burtsev     | [@voksus](https://github.com/voksus)          |
+| Yakiv Tsypin (Zexler) | [@Zexler](https://github.com/Zexler)          |
+| Hanna Fedko           | [@PoppyHanna](https://github.com/PoppyHanna)  |
+| Oleksandr Tovkailo    | [@Tov4ik](https://github.com/Tov4ik)          |
 
 </div>
 

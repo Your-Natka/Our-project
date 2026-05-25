@@ -20,7 +20,7 @@ const SEARCH_ERROR_MESSAGE =
   'Nothing was found for your request. Please try another word';
 
 const filterParamMap = {
-  Muscles: 'target',
+  Muscles: 'muscles',
   'Body parts': 'bodypart',
   Equipment: 'equipment',
 };

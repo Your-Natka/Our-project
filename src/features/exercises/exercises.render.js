@@ -8,7 +8,7 @@ export function renderExercises(exercises, container) {
               <span class="workout-badge">Workout</span>
               <span class="card-rating">
                 ${Number(ex.rating).toFixed(1)}
-                <svg class="star-icon" width="18" height="18">
+                <svg class="star-icon active" width="18" height="18">
                   <use href="./sprite.svg#icon-star"></use>
                 </svg>
               </span>
